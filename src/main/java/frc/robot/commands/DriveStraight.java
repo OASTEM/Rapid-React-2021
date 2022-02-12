@@ -24,9 +24,8 @@ public class DriveStraight extends CommandBase {
   @Override
   public void initialize() {
     driveTrain.resetEncoders();
-    driveTrain.setLeftPID(Constants.SLOT_ID, Constants.kP, Constants.kI, Constants.kD); //make into constants
-    driveTrain.setRightPID(Constants.SLOT_ID, Constants.kP, Constants.kI, Constants.kD);
-    driveTrain.setPosition(goal);
+    driveTrain.setPosition(-goal);
+    //driveTrain.tankDrive(0.25, 0.25);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -40,14 +39,22 @@ public class DriveStraight extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     driveTrain.stop();
+    System.out.println(driveTrain.getLeftEncoderCount());
+    System.out.println(driveTrain.getRightEncoderCount());
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    double left = driveTrain.getLeftEncoderCount();
-    double right = driveTrain.getRightEncoderCount();
+    // double left = driveTrain.getLeftEncoderCount();
+    // double right = driveTrain.getRightEncoderCount();
 
-    return (left >= goal-1000) && (right >= goal-1000) && (right <= goal+1000) && (left <= goal+1000);
+    // return (left >= goal-1000) && (right >= goal-1000) && (right <= goal+1000) && (left <= goal+1000);
+    double left = Math.abs(driveTrain.getLeftEncoderCount()-goal);
+    double right = Math.abs(driveTrain.getRightEncoderCount()+goal);
+
+    System.out.println(left);
+    System.out.println(right);
+    return (left <= 1000) && (right <= 1000);
   }
 }

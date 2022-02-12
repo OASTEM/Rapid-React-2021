@@ -6,6 +6,8 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
+import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
 import com.ctre.phoenix.motorcontrol.can.SlotConfiguration;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
@@ -26,7 +28,10 @@ public class DriveTrain extends SubsystemBase {
     frontL = new TalonFX(Constants.FRONT_LEFT_ID);
     backR = new TalonFX(Constants.BACK_RIGHT_ID);
     backL = new TalonFX(Constants.BACK_LEFT_ID);
-    
+
+    frontL.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, 0, 0);
+    frontR.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, 0, 0);
+
     backL.follow(frontL);
     backR.follow(frontR);
     frontL.setInverted(true);
@@ -38,6 +43,16 @@ public class DriveTrain extends SubsystemBase {
     frontL.configPeakOutputReverse(-1);
     frontR.configPeakOutputForward(1);
     frontR.configPeakOutputReverse(-1);
+
+    setLeftPID(Constants.SLOT_ID, Constants.kP, Constants.kI, Constants.kD); //make into constants
+    setRightPID(Constants.SLOT_ID, Constants.kP, Constants.kI, Constants.kD);
+  
+    frontL.configMotionCruiseVelocity(Constants.CRUISE_VELOCITY, 0);
+    frontL.configMotionAcceleration(Constants.ACCELERATION, 0);
+    frontR.configMotionCruiseVelocity(Constants.CRUISE_VELOCITY, 0);
+    frontR.configMotionAcceleration(Constants.ACCELERATION, 0);
+
+    resetEncoders();
   }
 
   public void arcadeDrive(double x, double y) {
@@ -72,20 +87,26 @@ public class DriveTrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    
+    // System.out.println(getLeftEncoderCount());
+    // System.out.println(getRightEncoderCount());
   }
 
   public void setPosition(double pos) {
-    frontL.set(ControlMode.MotionMagic, pos);
+    // frontL.set(ControlMode.Position, pos);
+    // frontR.set(ControlMode.Position, pos);
+    frontL.set(TalonFXControlMode.MotionMagic, pos);
+    frontR.set(TalonFXControlMode.MotionMagic, pos);
   }
 
   public void setLeftPID(int slotID, double p, double i, double d){
+    frontL.selectProfileSlot(0, 0);
     frontL.config_kP(slotID, p);
     frontL.config_kI(slotID, i);
     frontL.config_kD(slotID, d);
   }
 
   public void setRightPID(int slotID, double p, double i, double d){
+    frontR.selectProfileSlot(0, 0);
     frontR.config_kP(slotID, p);
     frontR.config_kI(slotID, i);
     frontR.config_kD(slotID, d);

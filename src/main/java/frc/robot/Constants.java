@@ -19,14 +19,19 @@ public final class Constants {
     public static final int BACK_RIGHT_ID = 0;
 
     public static final double SLOW_MODE = 0.25;
-    public static final double REGULAR_MODE = 0.5;
+    public static final double REGULAR_MODE = 0.35;
 
     public static final int SLOT_ID = 0;
-    public static final double kP = 0;
+    public static final double kP = 0.1;
     public static final double kI = 0;
     public static final double kD = 0;
 
+
+    public static final int CRUISE_VELOCITY = 7000; //max velocity 21500 units per 100ms
+    public static final int ACCELERATION = 3500; 
+
     //might need to add a driveStraightP vs turnAngleP
     //might also need leftPID vs rightPID bc of motor controllers 
+    
 
 }

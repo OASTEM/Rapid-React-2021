@@ -28,7 +28,7 @@ public class RobotContainer {
   private final LogitechGamingPad drivePad = new LogitechGamingPad(0);
   private final JoystickButton buttonA = new JoystickButton(drivePad, 1);
   private final JoystickButton buttonB = new JoystickButton(drivePad, 2);
-
+  private final JoystickButton buttonC = new JoystickButton(drivePad, 3);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -46,6 +46,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     buttonA.whenPressed(new ArcadeDrive(driveTrain, drivePad));
     buttonB.whenPressed(new ArcadeDriveSlowMode(driveTrain, drivePad));
+    buttonC.whenPressed(new TankDrive(driveTrain, drivePad));
   }
 
   /**
@@ -55,6 +56,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return new DriveStraight(driveTrain, 400000);
   }
 }
