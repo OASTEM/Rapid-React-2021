@@ -34,6 +34,8 @@ public final class Constants {
 
   public static final double ERROR_ANGLE_TOLERANCE = 5;
 
+  public static final int TOP_SPARK = 4;
+  public static final int BOTTOM_SPARK = 5;
   //might need to add a driveStraightP vs turnAngleP
   //might also need leftPID vs rightPID bc of motor controllers 
   
