@@ -20,10 +20,10 @@ public class DriveTrain extends SubsystemBase {
 
   /** Creates a new DriveTrain. */
   public DriveTrain() {
-    frontL = new TalonSRX(Constants.DRIVETRAIN_FRONT_LEFT);
-    frontR = new TalonSRX(Constants.DRIVETRAIN_FRONT_RIGHT);
-    backL = new TalonSRX(Constants.DRIVETRAIN_BACK_LEFT);
-    backR = new TalonSRX(Constants.DRIVETRAIN_BACK_RIGHT);
+    frontL = new TalonSRX(Constants.FRONT_LEFT_ID);
+    frontR = new TalonSRX(Constants.FRONT_RIGHT_ID);
+    backL = new TalonSRX(Constants.BACK_LEFT_ID);
+    backR = new TalonSRX(Constants.BACK_RIGHT_ID);
 
     backL.follow(frontL);
     backR.follow(frontR);

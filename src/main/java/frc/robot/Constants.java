@@ -13,12 +13,29 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-  public static final int DRIVETRAIN_FRONT_LEFT = 0;
-  public static final int DRIVETRAIN_BACK_LEFT = 1;
-  public static final int DRIVETRAIN_FRONT_RIGHT = 2;
-  public static final int DRIVETRAIN_BACK_RIGHT = 3;
-  public static final int TOP_SPARK = 4;
-  public static final int BOTTOM_SPARK = 5;
+  public static final int FRONT_LEFT_ID = 3;
+  public static final int FRONT_RIGHT_ID = 1;
+  public static final int BACK_LEFT_ID = 2;
+  public static final int BACK_RIGHT_ID = 0;
+
+  public static final double SLOW_MODE = 0.25;
+  public static final double REGULAR_MODE = 0.35;
+
+  public static final int SLOT_ID = 0;
+  public static final double kP = 0.1;
+  public static final double kI = 0;
+  public static final double kD = 0;
+
   public static final int SHOOTER_LEFT_ID = 6;
   public static final int SHOOTER_RIGHT_ID = 7;
+
+  public static final int CRUISE_VELOCITY = 7000; //max velocity 21500 units per 100ms
+  public static final int ACCELERATION = 3500; 
+
+  public static final double ERROR_ANGLE_TOLERANCE = 5;
+
+  //might need to add a driveStraightP vs turnAngleP
+  //might also need leftPID vs rightPID bc of motor controllers 
+  
+
 }
