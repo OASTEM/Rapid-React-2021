@@ -38,6 +38,12 @@ public final class Constants {
 
   public static final int TOP_SPARK = 4;
   public static final int BOTTOM_SPARK = 5;
+
+  public static final double SHOOTER_P = 0.0001;
+  public static final double SHOOTER_I = 0;
+  public static final double SHOOTER_D = 0;
+  public static final double SHOOTER_F = 0.000174;
+  
   //might need to add a driveStraightP vs turnAngleP
   //might also need leftPID vs rightPID bc of motor controllers 
   
