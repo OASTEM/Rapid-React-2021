@@ -9,6 +9,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
+import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.SlotConfiguration;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -53,7 +54,7 @@ public class DriveTrain extends SubsystemBase {
     frontR.configMotionCruiseVelocity(Constants.CRUISE_VELOCITY, 0);
     frontR.configMotionAcceleration(Constants.ACCELERATION, 0);
 
-    resetEncoders();
+    //resetEncoders();
   }
 
   public void arcadeDrive(double x, double y) {
@@ -72,18 +73,18 @@ public class DriveTrain extends SubsystemBase {
     frontR.set(ControlMode.PercentOutput, 0.0);
   }
 
-  public double getLeftEncoderCount() {
+  /* public double getLeftEncoderCount() {
     return frontL.getSensorCollection().getIntegratedSensorPosition();
   }
 
   public double getRightEncoderCount() {
-    return frontR.getSensorCollection().getIntegratedSensorPosition();
+    //return frontR.getSensorCollection().getIntegratedSensorPosition();
   }
 
   public void resetEncoders() {
-    frontL.getSensorCollection().setIntegratedSensorPosition(0, 0);
-    frontR.getSensorCollection().setIntegratedSensorPosition(0, 0);
-  }
+    //frontL.getSensorCollection().setIntegratedSensorPosition(0, 0);
+    //frontR.getSensorCollection().setIntegratedSensorPosition(0, 0);
+  }*/
 
   @Override
   public void periodic() {
@@ -95,8 +96,8 @@ public class DriveTrain extends SubsystemBase {
   public void setPosition(double pos) {
     // frontL.set(ControlMode.Position, pos);
     // frontR.set(ControlMode.Position, pos);
-    frontL.set(TalonFXControlMode.MotionMagic, pos);
-    frontR.set(TalonFXControlMode.MotionMagic, pos);
+    frontL.set(TalonSRXControlMode.MotionMagic, pos);
+    frontR.set(TalonSRXControlMode.MotionMagic, pos);
   }
 
   public void setLeftPID(int slotID, double p, double i, double d){
