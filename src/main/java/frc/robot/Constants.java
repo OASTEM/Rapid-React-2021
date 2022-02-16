@@ -18,7 +18,7 @@ public final class Constants {
   public static final int BACK_LEFT_ID = 2;
   public static final int BACK_RIGHT_ID = 0;
 
-  public static final double SHOOTER_SPEED = 0.6;
+  public static final double SHOOTER_SPEED = -0.6;
 
   public static final double SLOW_MODE = 0.25;
   public static final double REGULAR_MODE = 0.35;
@@ -43,6 +43,15 @@ public final class Constants {
   public static final double SHOOTER_I = 0;
   public static final double SHOOTER_D = 0;
   public static final double SHOOTER_F = 0.000174;
+
+  public static final int INTAKE_TOP_SPARK = 8;
+  public static final int INTAKE_BOTTOM_SPARK = 9;
+  public static final double INTAKE_SPEED = 0.4;
+  public static final double INTAKE_tSPEED = 1;
+  public static final double INTAKE_bSPEED = 0.25;
+
+  public static final double SHOOTER_VELOCITY = -3500;
+  public static final double SHOOTER_RPM_TOLERANCE = 25;
   
   //might need to add a driveStraightP vs turnAngleP
   //might also need leftPID vs rightPID bc of motor controllers 
