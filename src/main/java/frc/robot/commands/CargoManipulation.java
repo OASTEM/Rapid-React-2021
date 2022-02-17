@@ -25,7 +25,6 @@ public class CargoManipulation extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  
   public void initialize() {
 
     if (isIntaking == true) {

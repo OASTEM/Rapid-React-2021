@@ -24,10 +24,10 @@ public final class Constants {
   public static final int SHOOTER_RIGHT_ID = 7;
   public static final double SHOOTER_SPEED = -0.6;
   public static final double SHOOTER_VELOCITY = -3500;
-  public static final double SHOOTER_RPM_TOLERANCE = 25;
+  public static final double SHOOTER_RPM_TOLERANCE = 50;
 
   public static final double SHOOTER_P = 0.0001;
   public static final double SHOOTER_I = 0;
   public static final double SHOOTER_D = 0;
-  public static final double SHOOTER_F = 0.000174;
+  public static final double SHOOTER_F = 0.000167; //174 before, check battery voltage effects on feed forward maybe
 }
