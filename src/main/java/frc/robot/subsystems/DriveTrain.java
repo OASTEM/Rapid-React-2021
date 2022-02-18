@@ -58,8 +58,10 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void arcadeDrive(double x, double y) {
-    frontL.set(ControlMode.PercentOutput, y-x);
-    frontR.set(ControlMode.PercentOutput, y+x);
+    //frontL.set(ControlMode.PercentOutput, y-x);
+    //frontR.set(ControlMode.PercentOutput, y+x);
+    frontL.set(ControlMode.PercentOutput, -y-x);
+    frontR.set(ControlMode.PercentOutput, -y+x);
   }
 
   //for testing purposes
