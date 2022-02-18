@@ -21,7 +21,7 @@ public final class Constants {
   public static final double SHOOTER_SPEED = -0.6;
 
   public static final double SLOW_MODE = 0.25;
-  public static final double REGULAR_MODE = 0.35;
+  public static final double REGULAR_MODE = 0.55;
 
   public static final int SLOT_ID = 0;
   public static final double kP = 0.1;
