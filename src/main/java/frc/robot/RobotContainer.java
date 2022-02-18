@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.CargoManipulation;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.FeederToShooter;
 import frc.robot.commands.IntakeCargo;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.DriveTrain;
