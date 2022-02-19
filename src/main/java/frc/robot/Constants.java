@@ -28,7 +28,7 @@ public final class Constants {
   public static final int SHOOTER_RIGHT_ID = 7;
   public static final double SHOOTER_SPEED = -0.6;
   public static final double SHOOTER_VELOCITY = -3500;
-  public static final double SHOOTER_RPM_TOLERANCE = 25;
+  public static final double SHOOTER_RPM_TOLERANCE = 50;
 
   public static final double SHOOTER_P = 0.0001;
   public static final double SHOOTER_I = 0;

@@ -48,7 +48,7 @@ public class RobotContainer {
   private final Intake intake = new Intake();
   private final JoystickButton buttonX = new JoystickButton(drivePad, 3);
   private final JoystickButton leftBumper = new JoystickButton(drivePad, 5);
-  private final JoystickButton rightBumper = new JoystickButton(drivePad, 6); 
+  private final JoystickButton rightBumper = new JoystickButton(drivePad, 6);
 
   public SendableChooser<String> chooser;
   private final String test = "test";
@@ -75,8 +75,7 @@ public class RobotContainer {
 
     driveTrain.setDefaultCommand(new ArcadeDrive(driveTrain, drivePad));
     configureButtonBindings();
-    //SmartDashboard.putData("idk", new ChangeDriveMode(driveTrain));
-
+    // SmartDashboard.putData("idk", new ChangeDriveMode(driveTrain));
 
     chooser = new SendableChooser<String>();
     chooser.setDefaultOption("Test", test);
@@ -95,8 +94,8 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     rightBumper.whileHeld(new IntakeCargo(intake, true));
-    //leftBumper.whileHeld(new FeederToShooter(intake, shooter));
-     leftBumper.whileHeld(new CargoManipulation(intake, shooter, false));
+    // leftBumper.whileHeld(new FeederToShooter(intake, shooter));
+    leftBumper.whileHeld(new CargoManipulation(intake, shooter, false));
     // buttonX.whenPressed(new IntakeCargo(intake, false));
     // rightBumper.whileHeld(new IntakeCargo(intake, true));
     // leftBumper.whenPressed(new Shoot(shooter));
@@ -115,13 +114,13 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    if(chooser.getSelected().equals(test)){
-      
-    }
-    return new DriveStraight(driveTrain, 60); //in inches
-    //return new TurnToAngle(driveTrain, navX, 90);
+    // if (chooser.getSelected().equals(test)) {
+    // }
+    return new DriveStraight(driveTrain, 60); // in inches
+    // return new TurnToAngle(driveTrain, navX, 90);
   }
-  public Command getTestCommand(){
+
+  public Command getTestCommand() {
     return new Test(driveTrain);
   }
 }
