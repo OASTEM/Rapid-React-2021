@@ -14,6 +14,7 @@ public class Test extends CommandBase {
   DriveTrain driveTrain;
   double goal;
   double error;
+
   public Test(DriveTrain driveTrain) {
     addRequirements(driveTrain);
     this.driveTrain = driveTrain;
@@ -25,10 +26,10 @@ public class Test extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    System.out.println("Test has been initiated");
     //timer.reset();
     driveTrain.resetEncoders();
     //timer.start();
-
   }
 
   // Called every time the scheduler runs while the command is scheduled.

@@ -18,6 +18,7 @@ import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DriveStraight;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.IntakeCargo;
+import frc.robot.commands.Test;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.DriveTrain;
@@ -119,5 +120,8 @@ public class RobotContainer {
     }
     return new DriveStraight(driveTrain, 60); //in inches
     //return new TurnToAngle(driveTrain, navX, 90);
+  }
+  public Command getTestCommand(){
+    return new Test(driveTrain);
   }
 }
