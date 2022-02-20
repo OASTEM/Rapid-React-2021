@@ -17,7 +17,7 @@ public class Climber extends SubsystemBase {
   public TalonFX rightMotor; 
 
   /** Creates a new Climber. */
-  public Climber() {;
+  public Climber() {
     leftMotor = new TalonFX(Constants.CLIMBER_LEFT_ID);
     rightMotor = new TalonFX(Constants.CLIMBER_RIGHT_ID);
 
