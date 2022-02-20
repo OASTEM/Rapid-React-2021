@@ -13,8 +13,8 @@ import frc.robot.Constants;
 
 public class Climber extends SubsystemBase {
 
-  public TalonFX leftMotor; 
-  public TalonFX rightMotor; 
+  public TalonFX leftMotor;
+  public TalonFX rightMotor;
 
   /** Creates a new Climber. */
   public Climber() {
@@ -25,7 +25,7 @@ public class Climber extends SubsystemBase {
 
     leftMotor.setNeutralMode(NeutralMode.Brake);
     rightMotor.setNeutralMode(NeutralMode.Brake);
-    
+
     leftMotor.config_kP(Constants.CLIMBER_SLOT_ID, Constants.CLIMBER_P);
     leftMotor.config_kI(Constants.CLIMBER_SLOT_ID, Constants.CLIMBER_I);
     leftMotor.config_kD(Constants.CLIMBER_SLOT_ID, Constants.CLIMBER_D);
@@ -36,25 +36,25 @@ public class Climber extends SubsystemBase {
     rightMotor.config_kF(Constants.CLIMBER_SLOT_ID, Constants.CLIMBER_F);
   }
 
-  public void climb(double speed){
+  public void climb(double speed) {
     leftMotor.set(ControlMode.PercentOutput, speed);
     rightMotor.set(ControlMode.PercentOutput, speed);
   }
 
-  public void climbLeft(double speed){
+  public void climbLeft(double speed) {
     leftMotor.set(ControlMode.PercentOutput, speed);
   }
 
-  public void climbRight(double speed){
+  public void climbRight(double speed) {
     rightMotor.set(ControlMode.PercentOutput, speed);
   }
 
-  public void setPosition(double encoder){
+  public void setPosition(double encoder) {
     leftMotor.set(ControlMode.Position, encoder);
     rightMotor.set(ControlMode.Position, encoder);
   }
 
-  public void resetEncoders(){
+  public void resetEncoders() {
     leftMotor.getSensorCollection().setIntegratedSensorPosition(0, 0);
     rightMotor.getSensorCollection().setIntegratedSensorPosition(0, 0);
   }
@@ -71,18 +71,18 @@ public class Climber extends SubsystemBase {
     System.out.println("Left: " + getLeftEncoderCount());
     System.out.println("Right: " + getRightEncoderCount());
   }
-  
-  public void stop(){
+
+  public void stop() {
     leftMotor.set(ControlMode.PercentOutput, 0.0);
     rightMotor.set(ControlMode.PercentOutput, 0.0);
   }
 
   // check for stall of the motors
-  public double getVelocityLeft(){
+  public double getVelocityLeft() {
     return leftMotor.getSelectedSensorVelocity();
   }
 
-  public double getVelocityRight(){
+  public double getVelocityRight() {
     return rightMotor.getSelectedSensorVelocity();
   }
 
