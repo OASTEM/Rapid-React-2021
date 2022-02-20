@@ -86,6 +86,14 @@ public class Climber extends SubsystemBase {
     return rightMotor.getSelectedSensorVelocity();
   }
 
+  public boolean selfTest(){
+    resetEncoders();
+    leftMotor.set(ControlMode.PercentOutput, Constants.CLIMBER_SELFTEST);
+    rightMotor.set(ControlMode.PercentOutput, Constants.CLIMBER_SELFTEST);
+
+    return (Math.abs(getLeftEncoderCount()) > 3 && Math.abs(getRightEncoderCount()) > 3);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

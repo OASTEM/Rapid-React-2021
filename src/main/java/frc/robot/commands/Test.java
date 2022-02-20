@@ -27,10 +27,7 @@ public class Test extends CommandBase {
   @Override
   public void initialize() {
     System.out.println("Test has been initiated");
-    //timer.reset();
-    // driveTrain.resetEncoders();
-
-    //timer.start();
+    
   }
 
   // Called every time the scheduler runs while the command is scheduled.
