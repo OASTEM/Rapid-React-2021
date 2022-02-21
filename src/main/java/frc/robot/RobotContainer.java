@@ -121,6 +121,7 @@ public class RobotContainer {
   }
 
   public Command getTestCommand() {
-    return new Test(driveTrain);
+    System.out.println("Test command sent from robot container");
+    return new Test();
   }
 }

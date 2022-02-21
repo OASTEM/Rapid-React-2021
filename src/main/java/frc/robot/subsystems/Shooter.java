@@ -78,5 +78,6 @@ public class Shooter extends SubsystemBase {
     System.out.println("Left: " + getLeftVelocity());
     System.out.println("Right: " + getRightVelocity());
     SmartDashboard.putNumber("Velocity L ", getLeftVelocity());
+
   }
 }

@@ -18,7 +18,6 @@ public class Climber extends SubsystemBase {
 
   /** Creates a new Climber. */
   public Climber() {
-    ;
     leftMotor = new TalonFX(Constants.CLIMBER_LEFT_ID);
     rightMotor = new TalonFX(Constants.CLIMBER_RIGHT_ID);
 
@@ -85,6 +84,14 @@ public class Climber extends SubsystemBase {
 
   public double getVelocityRight() {
     return rightMotor.getSelectedSensorVelocity();
+  }
+
+  public boolean selfTest(){
+    resetEncoders();
+    leftMotor.set(ControlMode.PercentOutput, Constants.CLIMBER_SELFTEST);
+    rightMotor.set(ControlMode.PercentOutput, Constants.CLIMBER_SELFTEST);
+
+    return (Math.abs(getLeftEncoderCount()) > 3 && Math.abs(getRightEncoderCount()) > 3);
   }
 
   @Override

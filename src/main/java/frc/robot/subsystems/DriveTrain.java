@@ -73,8 +73,16 @@ public class DriveTrain extends SubsystemBase {
     return frontL.getSensorCollection().getIntegratedSensorPosition();
   }
 
+  public double getBackLeftEncoderCount() {
+    return backL.getSensorCollection().getIntegratedSensorPosition();
+  }
+
   public double getRightEncoderCount() {
     return frontR.getSensorCollection().getIntegratedSensorPosition();
+  }
+
+  public double getBackRightEncoderCount() {
+    return backR.getSensorCollection().getIntegratedSensorPosition();
   }
 
   public double getNativeUnitsFromInches(double inches) {
@@ -120,5 +128,14 @@ public class DriveTrain extends SubsystemBase {
     frontR.config_kP(slotID, p);
     frontR.config_kI(slotID, i);
     frontR.config_kD(slotID, d);
+  }
+
+  public boolean selfTest() {
+    resetEncoders();
+    frontL.set(ControlMode.PercentOutput, Constants.DRIVETRAIN_SELFTEST);
+    frontR.set(ControlMode.PercentOutput, Constants.DRIVETRAIN_SELFTEST);
+
+    return (Math.abs(getLeftEncoderCount()) > 3 && Math.abs(getRightEncoderCount()) > 3 && Math
+        .abs(getBackLeftEncoderCount()) > 3 && Math.abs(getBackRightEncoderCount()) > 3);
   }
 }

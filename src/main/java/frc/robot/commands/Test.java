@@ -11,14 +11,14 @@ import frc.robot.subsystems.DriveTrain;
 public class Test extends CommandBase {
   /** Creates a new Test. */
   //Timer timer;
-  DriveTrain driveTrain;
-  double goal;
-  double error;
+  // DriveTrain driveTrain;
+  // double goal;
+  // double error;
 
-  public Test(DriveTrain driveTrain) {
-    addRequirements(driveTrain);
-    this.driveTrain = driveTrain;
-    goal = 95000;
+  public Test() {
+    // addRequirements(driveTrain);
+    // this.driveTrain = driveTrain;
+    // goal = 95000;
     //timer = new Timer();
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -27,23 +27,22 @@ public class Test extends CommandBase {
   @Override
   public void initialize() {
     System.out.println("Test has been initiated");
-    //timer.reset();
-    driveTrain.resetEncoders();
-    //timer.start();
+    
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    error = goal-driveTrain.getLeftEncoderCount();
-    driveTrain.arcadeDrive(0, (-error/goal)*.4);
-    System.out.println(driveTrain.getLeftEncoderCount());
+    System.out.println("Test execute");
+    // error = goal-driveTrain.getLeftEncoderCount();
+    // driveTrain.arcadeDrive(0, (-error/goal)*.4);
+    // System.out.println(driveTrain.getLeftEncoderCount());
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    driveTrain.stop();
+    // driveTrain.stop();
   }
 
   // Returns true when the command should end.
