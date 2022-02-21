@@ -10,6 +10,7 @@ import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
 import com.ctre.phoenix.motorcontrol.can.SlotConfiguration;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -130,12 +131,13 @@ public class DriveTrain extends SubsystemBase {
     frontR.config_kD(slotID, d);
   }
 
-  public boolean selfTest() {
+  public void selfTest() {
     resetEncoders();
     frontL.set(ControlMode.PercentOutput, Constants.DRIVETRAIN_SELFTEST);
     frontR.set(ControlMode.PercentOutput, Constants.DRIVETRAIN_SELFTEST);
-
-    return (Math.abs(getLeftEncoderCount()) > 3 && Math.abs(getRightEncoderCount()) > 3 && Math
+    boolean selfTestGood = ( Math.abs(getLeftEncoderCount()) > 3 && Math.abs(getRightEncoderCount()) > 3 && Math
         .abs(getBackLeftEncoderCount()) > 3 && Math.abs(getBackRightEncoderCount()) > 3);
+    SmartDashboard.putBoolean("Self Test DriveTrain", selfTestGood);
+    this.stop();
   }
 }

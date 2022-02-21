@@ -6,8 +6,10 @@ package frc.robot.subsystems;
 
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -15,10 +17,15 @@ public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
   private CANSparkMax topMotor; 
   private CANSparkMax bottomMotor; 
+  private RelativeEncoder topEncoder;
+  private RelativeEncoder bottomEncoder;
 
   public Intake() {
     topMotor = new CANSparkMax(Constants.INTAKE_TOP_SPARK, MotorType.kBrushless);
     bottomMotor = new CANSparkMax(Constants.INTAKE_BOTTOM_SPARK, MotorType.kBrushless);
+
+    topEncoder = topMotor.getEncoder();
+    bottomEncoder = bottomMotor.getEncoder();
     
   }
 
@@ -35,6 +42,13 @@ public class Intake extends SubsystemBase {
     bottomMotor.set(0);
   }
 
+  public void selfTest(){
+    topMotor.set(Constants.INTAKE_SELFTEST);
+    bottomMotor.set(Constants.INTAKE_SELFTEST);
+    boolean selfTestGood =  (Math.abs(topEncoder.getVelocity())>0 && Math.abs(bottomEncoder.getVelocity())>0) ;
+    SmartDashboard.putBoolean("Self Test Intake", selfTestGood);
+    this.stop();
+  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

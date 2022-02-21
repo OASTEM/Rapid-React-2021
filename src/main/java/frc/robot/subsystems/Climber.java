@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -15,6 +16,7 @@ public class Climber extends SubsystemBase {
 
   public TalonFX leftMotor;
   public TalonFX rightMotor;
+  public  boolean selfTestGood;
 
   /** Creates a new Climber. */
   public Climber() {
@@ -86,12 +88,14 @@ public class Climber extends SubsystemBase {
     return rightMotor.getSelectedSensorVelocity();
   }
 
-  public boolean selfTest(){
+  public void selfTest(){
     resetEncoders();
     leftMotor.set(ControlMode.PercentOutput, Constants.CLIMBER_SELFTEST);
     rightMotor.set(ControlMode.PercentOutput, Constants.CLIMBER_SELFTEST);
 
-    return (Math.abs(getLeftEncoderCount()) > 3 && Math.abs(getRightEncoderCount()) > 3);
+    selfTestGood =  (Math.abs(getLeftEncoderCount()) > 3 && Math.abs(getRightEncoderCount()) > 3);
+    SmartDashboard.putBoolean("Self Test Climber", selfTestGood);
+    this.stop();
   }
 
   @Override

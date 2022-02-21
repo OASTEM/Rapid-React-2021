@@ -72,12 +72,19 @@ public class Shooter extends SubsystemBase {
     right.stopMotor();
   }
 
+  // This method will self test both motors
+  public void selfTest(){
+    setVelocity(Constants.SHOOTER_SELFTEST);
+    boolean selfTestGood =  (Math.abs(getLeftVelocity())>0 && Math.abs(getRightVelocity())>0);
+    SmartDashboard.putBoolean("Self Test Shooter", selfTestGood);
+    this.stop();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
     System.out.println("Left: " + getLeftVelocity());
     System.out.println("Right: " + getRightVelocity());
     SmartDashboard.putNumber("Velocity L ", getLeftVelocity());
-
   }
 }

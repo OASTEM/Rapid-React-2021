@@ -78,6 +78,9 @@ public final class Constants {
 
   public static final double DRIVETRAIN_SELFTEST = 0.01;
 
+  public static final double INTAKE_SELFTEST = 0.01;
+
+  public static final double SHOOTER_SELFTEST = 0.01;
   // might need to add a driveStraightP vs turnAngleP
   // might also need leftPID vs rightPID bc of motor controllers
 
