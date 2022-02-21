@@ -28,6 +28,7 @@ public final class Constants {
   public static final int SHOOTER_RIGHT_ID = 7;
   public static final double SHOOTER_SPEED = -0.6;
   public static final double SHOOTER_VELOCITY = -3500;
+  // static final double SHOOTER_VELOCITY = -2150;
   public static final double SHOOTER_RPM_TOLERANCE = 50;
 
   public static final double SHOOTER_P = 0.0001;
@@ -51,7 +52,7 @@ public final class Constants {
   public static final double CLIMBER_DOWN_SPEED = -0.5;
 
   public static final double SLOW_MODE = 0.1;
-  public static final double REGULAR_MODE = 0.5;
+  public static final double REGULAR_MODE = 0.75;
 
   //drivetrain PID
   public static final int SLOT_ID = 0;
