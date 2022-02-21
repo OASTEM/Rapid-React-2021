@@ -75,7 +75,10 @@ public class Shooter extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    System.out.println("Left: " + getLeftVelocity());
-    System.out.println("Right: " + getRightVelocity());
+    // System.out.println("Left: " + getLeftVelocity());
+    // System.out.println("Right: " + getRightVelocity());
+    SmartDashboard.putNumber("Velocity", getLeftVelocity()*1.15);
+    SmartDashboard.putNumber("Velocity Num", getLeftVelocity() * 1.15);
+    SmartDashboard.putNumber("Left Surface Speed", getLeftVelocity()/60*Math.PI*4/12);
   }
 }

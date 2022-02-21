@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.CargoManipulation;
+import frc.robot.commands.ChangeDriveMode;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.IntakeCargo;
 import frc.robot.subsystems.Climber;
@@ -58,7 +59,7 @@ public class RobotContainer {
   // private final JoystickButton buttonY = new JoystickButton(drivePad, 4);
   // private final JoystickButton buttonA = new JoystickButton(drivePad, 1);
 
-
+  private final JoystickButton buttonB = new JoystickButton(drivePad, 2);
   private final JoystickButton leftBumper = new JoystickButton(drivePad, 5);
   private final JoystickButton rightBumper = new JoystickButton(drivePad, 6);
 
@@ -91,7 +92,7 @@ public class RobotContainer {
     // buttonA.whileHeld(new ClimbDown(climber));
 
     // buttonA.whenPressed(new ArcadeDrive(driveTrain, drivePad));
-    // buttonB.whenPressed(new ChangeDriveMode(driveTrain));
+    buttonB.whenPressed(new ChangeDriveMode(driveTrain));
   }
 
   /**

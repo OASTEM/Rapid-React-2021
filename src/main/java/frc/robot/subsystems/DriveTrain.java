@@ -23,6 +23,7 @@ public class DriveTrain extends SubsystemBase {
   private TalonSRX frontL;
   private TalonSRX backR;
   private TalonSRX backL;
+  private boolean slowModeOn;
 
   /** Creates a new DriveTrain. */
   public DriveTrain() {
@@ -73,6 +74,14 @@ public class DriveTrain extends SubsystemBase {
   public void stop(){
     frontL.set(ControlMode.PercentOutput, 0.0);
     frontR.set(ControlMode.PercentOutput, 0.0);
+  }
+
+  public boolean getSlowMode(){
+    return slowModeOn;
+  }
+
+  public void setSlowMode(boolean slowMode){
+    slowModeOn = slowMode;
   }
 
   /* public double getLeftEncoderCount() {
