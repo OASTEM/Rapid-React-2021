@@ -18,6 +18,7 @@ import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DriveStraight;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.IntakeCargo;
+import frc.robot.commands.SelfTest;
 import frc.robot.commands.Test;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Climber;
@@ -122,6 +123,7 @@ public class RobotContainer {
 
   public Command getTestCommand() {
     System.out.println("Test command sent from robot container");
-    return new Test();
+    //return new Test();
+    return new SelfTest(driveTrain, climber, shooter, intake);
   }
 }

@@ -19,11 +19,12 @@ public class Intake extends SubsystemBase {
   private CANSparkMax bottomMotor; 
   private RelativeEncoder topEncoder;
   private RelativeEncoder bottomEncoder;
+  public boolean selfTestGood = false;
 
   public Intake() {
     topMotor = new CANSparkMax(Constants.INTAKE_TOP_SPARK, MotorType.kBrushless);
     bottomMotor = new CANSparkMax(Constants.INTAKE_BOTTOM_SPARK, MotorType.kBrushless);
-
+    System.out.println("Intake top motor"+topMotor.toString());
     topEncoder = topMotor.getEncoder();
     bottomEncoder = bottomMotor.getEncoder();
     
@@ -45,7 +46,11 @@ public class Intake extends SubsystemBase {
   public void selfTest(){
     topMotor.set(Constants.INTAKE_SELFTEST);
     bottomMotor.set(Constants.INTAKE_SELFTEST);
-    boolean selfTestGood =  (Math.abs(topEncoder.getVelocity())>0 && Math.abs(bottomEncoder.getVelocity())>0) ;
+    
+  }
+
+  public void selfTestExecute(){
+    selfTestGood = (Math.abs(topEncoder.getVelocity()) > 0 && Math.abs(bottomEncoder.getVelocity()) > 0);
     SmartDashboard.putBoolean("Self Test Intake", selfTestGood);
     this.stop();
   }

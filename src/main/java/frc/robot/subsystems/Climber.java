@@ -16,7 +16,7 @@ public class Climber extends SubsystemBase {
 
   public TalonFX leftMotor;
   public TalonFX rightMotor;
-  public  boolean selfTestGood;
+  public boolean selfTestGood = false;
 
   /** Creates a new Climber. */
   public Climber() {
@@ -92,8 +92,10 @@ public class Climber extends SubsystemBase {
     resetEncoders();
     leftMotor.set(ControlMode.PercentOutput, Constants.CLIMBER_SELFTEST);
     rightMotor.set(ControlMode.PercentOutput, Constants.CLIMBER_SELFTEST);
+  }
 
-    selfTestGood =  (Math.abs(getLeftEncoderCount()) > 3 && Math.abs(getRightEncoderCount()) > 3);
+  public void selfTestExecute(){
+    selfTestGood = (Math.abs(getLeftEncoderCount()) > 3 && Math.abs(getRightEncoderCount()) > 3);
     SmartDashboard.putBoolean("Self Test Climber", selfTestGood);
     this.stop();
   }

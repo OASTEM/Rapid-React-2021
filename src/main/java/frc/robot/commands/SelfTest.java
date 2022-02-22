@@ -33,6 +33,7 @@ public class SelfTest extends CommandBase {
     // SmartDashboard.putBoolean("Self Test Climber", climber.selfTest());
     // SmartDashboard.putBoolean("Self Test Shooter", shooter.selfTest());
     // SmartDashboard.putBoolean("Self Test Intake", intake.selfTest());
+    System.out.println("self test initalized");
     driveTrain.selfTest();
     climber.selfTest();
     shooter.selfTest();
@@ -42,7 +43,12 @@ public class SelfTest extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    driveTrain.selfTestExecute();
+    climber.selfTestExecute();
+    shooter.selfTestExecute();
+    intake.selfTestExecute();
+  }
 
   // Called once the command ends or is interrupted.
   @Override
@@ -50,13 +56,15 @@ public class SelfTest extends CommandBase {
     driveTrain.stop();
     climber.stop();
     intake.stop();
-    climber.stop();
+    shooter.stop();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     //climber.selfTestGood;
-    return false;
+    //return false;
+    System.out.println(climber.selfTestGood && driveTrain.selfTestGood && intake.selfTestGood && shooter.selfTestGood);
+    return climber.selfTestGood && driveTrain.selfTestGood && intake.selfTestGood && shooter.selfTestGood;
   }
 }
