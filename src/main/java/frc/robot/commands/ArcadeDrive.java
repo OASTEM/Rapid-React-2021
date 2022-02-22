@@ -28,7 +28,11 @@ public class ArcadeDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+<<<<<<< Updated upstream
     driveTrain.arcadeDrive((drivePad.getRightAnalogXAxis()*Constants.REGULAR_MODE), (drivePad.getLeftAnalogYAxis()*-Constants.REGULAR_MODE));
+=======
+    driveTrain.arcadeDrive((drivePad.getRightAnalogXAxis()*Constants.REGULAR_MODE), (drivePad.getLeftAnalogYAxis()*Constants.REGULAR_MODE*-1));
+>>>>>>> Stashed changes
   }
 
   // Called once the command ends or is interrupted.

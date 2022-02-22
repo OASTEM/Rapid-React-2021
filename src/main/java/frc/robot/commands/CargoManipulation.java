@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.Intake;
@@ -29,8 +30,8 @@ public class CargoManipulation extends CommandBase {
   public void initialize() {
 
     if (isIntaking == true) {
-      intake.intakeTopMotor(Constants.INTAKE_tSPEED);
-      intake.intakeBottomMotor(Constants.INTAKE_bSPEED);
+      intake.intakeTopMotor(Constants.INTAKE_TSPEED);
+      intake.intakeBottomMotor(Constants.INTAKE_BSPEED);
     } else {
       shooter.setVelocity(Constants.SHOOTER_VELOCITY);
     }
@@ -46,6 +47,7 @@ public class CargoManipulation extends CommandBase {
       intake.intakeTopMotor(Constants.INTAKE_SPEED*-1);
       intake.intakeBottomMotor(Constants.INTAKE_SPEED);
     }
+    
   }
 
   // Called once the command ends or is interrupted.
