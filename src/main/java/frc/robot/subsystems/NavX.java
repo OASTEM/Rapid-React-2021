@@ -24,6 +24,8 @@ public class NavX extends SubsystemBase {
   public double getAngle() {
     return navX.getAngle();
   }
+
+  
   
   public void reset() {
     navX.reset();

@@ -11,7 +11,7 @@ package frc.robot;
  * should be declared
  * globally (i.e. public static). Do not put anything functional in this class.
  *
- * <p>
+ * <p>  
  * It is advised to statically import this class (or one of its inner classes)
  * wherever the
  * constants are needed, to reduce verbosity.
@@ -63,7 +63,14 @@ public final class Constants {
   public static final int ACCELERATION = 3500;
   public static final int ERROR_THRESHOLD = 500;
 
-  public static final double ERROR_ANGLE_TOLERANCE = 5;
+  public static final double ERROR_ANGLE_TOLERANCE = 1;
+
+  public static final double TURNTOANGLE_TURNP = 9; //find value accurte not skip
+  public static final double TURNTOANGLE_MAX_SPEED = 0.15; //0.15 &0.4
+  // might need count loop for turnangle
+  //tasks: try to find slower max speed than of 0.4
+  // also need to create a boolean when shooter is false it is teleop
+  //if true then it is called in the command group and it runs off of the timer in isFinished
 
   public static final double CALIBRATION_SPEED = -0.1;
 

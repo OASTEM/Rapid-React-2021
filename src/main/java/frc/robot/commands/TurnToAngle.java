@@ -35,8 +35,16 @@ public class TurnToAngle extends CommandBase {
   public void execute() {
     currentAngle = navX.getAngle();
     double errorAngle = goalAngle - currentAngle;
-    double power = errorAngle/goalAngle;
+    double power = (errorAngle/goalAngle)*Constants.TURNTOANGLE_TURNP;
+
+    if (power > Constants.TURNTOANGLE_MAX_SPEED){ 
+      power = Constants.TURNTOANGLE_MAX_SPEED;
+    }
+
     driveTrain.tankDrive(power, -power);
+
+    System.out.println("ANGLE: " + currentAngle);
+    System.out.println(power);
   }
 
   // Called once the command ends or is interrupted.
