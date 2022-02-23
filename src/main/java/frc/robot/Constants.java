@@ -47,21 +47,11 @@ public final class Constants {
   public static final int INTAKE_TOP_SPARK = 8;
   public static final int INTAKE_BOTTOM_SPARK = 9;
   public static final double INTAKE_SPEED = 0.4;
-<<<<<<< Updated upstream
-  public static final double INTAKE_tSPEED = 1;0
-  
-  public static final double INTAKE_bSPEED = 0.25;
-
-  public static final double SHOOTER_VELOCITY = -3500;
-  //public static final double SHOOTER_VELOCITY = -2100;
-  public static final double SHOOTER_RPM_TOLERANCE = 25;
-=======
   public static final double INTAKE_TSPEED = 1;
   public static final double INTAKE_BSPEED = 0.25;
 
   public static final double SHOOTER_VELOCITY = -3500;
   public static final double SHOOTER_RPM_TOLERANCE = 50;
->>>>>>> Stashed changes
   
   //might need to add a driveStraightP vs turnAngleP
   //might also need leftPID vs rightPID bc of motor controllers 
