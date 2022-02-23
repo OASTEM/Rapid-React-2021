@@ -28,6 +28,7 @@ public final class Constants {
   public static final int SHOOTER_RIGHT_ID = 7;
   public static final double SHOOTER_SPEED = -0.6;
   public static final double SHOOTER_VELOCITY = -3500;
+  // static final double SHOOTER_VELOCITY = -2150;
   public static final double SHOOTER_RPM_TOLERANCE = 50;
 
   public static final double SHOOTER_P = 0.0001;
@@ -51,15 +52,15 @@ public final class Constants {
   public static final double CLIMBER_DOWN_SPEED = -0.5;
 
   public static final double SLOW_MODE = 0.1;
-  public static final double REGULAR_MODE = 0.5;
+  public static final double REGULAR_MODE = 0.75;
 
-  //drivetrain PID
+  // drivetrain PID
   public static final int SLOT_ID = 0;
   public static final double kP = 0.15;
   public static final double kI = 0;
   public static final double kD = 0;
 
-  public static final int CRUISE_VELOCITY = 7000; //max is around 21500
+  public static final int CRUISE_VELOCITY = 7000; // max is around 21500
   public static final int ACCELERATION = 3500;
   public static final int ERROR_THRESHOLD = 500;
 
@@ -80,10 +81,13 @@ public final class Constants {
   public static final double CLIMBER_F = 0;
   public static final int CLIMBER_SLOT_ID = 0;
 
-  public static final double CLIMBER_SELFTEST = 0.01;
+  public static final double CLIMBER_SELFTEST = 0.5;
 
-  public static final double DRIVETRAIN_SELFTEST = 0.01;
+  public static final double DRIVETRAIN_SELFTEST = 0.5;
 
+  public static final double INTAKE_SELFTEST = 0.5;
+
+  public static final double SHOOTER_SELFTEST = 0.5;
   // might need to add a driveStraightP vs turnAngleP
   // might also need leftPID vs rightPID bc of motor controllers
 

@@ -36,11 +36,11 @@ public class Calibration extends CommandBase {
   @Override
   public void execute() {
     if(timer.get()>0.1){
-      if(climber.getVelocityLeft()<=0){
+      if(climber.getVelocityLeft()<=0.01){
         leftDone = true;
         climber.climbLeft(0);
       }
-      if(climber.getVelocityRight()<=0){
+      if(climber.getVelocityRight()<=0.01){
         rightDone = true;
         climber.climbRight(0);
       }
@@ -58,8 +58,8 @@ public class Calibration extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-  //  return rightDone && leftDone;
-    return false;
+    return rightDone && leftDone;
+    //return false;
   }
 
 

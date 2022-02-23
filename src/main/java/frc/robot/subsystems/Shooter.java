@@ -9,6 +9,7 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -20,6 +21,8 @@ public class Shooter extends SubsystemBase {
   private SparkMaxPIDController rightPIDController;
   private RelativeEncoder leftEncoder;
   private RelativeEncoder rightEncoder;
+
+  public boolean selfTestGood = false;
 
   public Shooter() {
     left = new CANSparkMax(Constants.SHOOTER_LEFT_ID, MotorType.kBrushless);
@@ -71,10 +74,23 @@ public class Shooter extends SubsystemBase {
     right.stopMotor();
   }
 
+  // This method will self test both motors
+  public void selfTest(){
+    setVelocity(Constants.SHOOTER_SELFTEST);
+    
+  }
+
+  public void selfTestExecute(){
+    selfTestGood = (Math.abs(getLeftVelocity()) > 0 && Math.abs(getRightVelocity()) > 0);
+    SmartDashboard.putBoolean("Self Test Shooter", selfTestGood);
+    this.stop();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
     // System.out.println("Left: " + getLeftVelocity());
     // System.out.println("Right: " + getRightVelocity());
+    SmartDashboard.putNumber("Velocity L ", getLeftVelocity());
   }
 }

@@ -10,6 +10,7 @@ import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
 import com.ctre.phoenix.motorcontrol.can.SlotConfiguration;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -19,6 +20,7 @@ public class DriveTrain extends SubsystemBase {
   private TalonFX frontL;
   private TalonFX backR;
   private TalonFX backL;
+  public boolean selfTestGood = false;
 
   /** Creates a new DriveTrain. */
   public DriveTrain() {
@@ -27,6 +29,7 @@ public class DriveTrain extends SubsystemBase {
     backR = new TalonFX(Constants.BACK_RIGHT_ID);
     backL = new TalonFX(Constants.BACK_LEFT_ID);
     slowModeOn = false;
+    System.out.println("Drive train front left: "+frontL.toString());
 
     backL.follow(frontL);
     backR.follow(frontR);
@@ -130,12 +133,19 @@ public class DriveTrain extends SubsystemBase {
     frontR.config_kD(slotID, d);
   }
 
-  public boolean selfTest() {
+  public void selfTest() {
     resetEncoders();
+    System.out.println("drive train self test");
     frontL.set(ControlMode.PercentOutput, Constants.DRIVETRAIN_SELFTEST);
     frontR.set(ControlMode.PercentOutput, Constants.DRIVETRAIN_SELFTEST);
+    
+  }
 
-    return (Math.abs(getLeftEncoderCount()) > 3 && Math.abs(getRightEncoderCount()) > 3 && Math
+  public void selfTestExecute(){
+    selfTestGood = (Math.abs(getLeftEncoderCount()) > 3 && Math.abs(getRightEncoderCount()) > 3 && Math
         .abs(getBackLeftEncoderCount()) > 3 && Math.abs(getBackRightEncoderCount()) > 3);
+    SmartDashboard.putBoolean("Self Test DriveTrain", selfTestGood);
+    System.out.println("DriveTrain: " + selfTestGood);
+    this.stop();
   }
 }
