@@ -32,7 +32,7 @@ public final class Constants {
   public static final int SHOOTER_RIGHT_ID = 7;
 
   public static final int CRUISE_VELOCITY = 7000; //max velocity 21500 units per 100ms
-  public static final int ACCELERATION = 3500; 
+  public static final int ACCELERATION = 3500;
 
   public static final double ERROR_ANGLE_TOLERANCE = 5;
 
@@ -51,6 +51,7 @@ public final class Constants {
   public static final double INTAKE_BSPEED = 0.25;
 
   public static final double SHOOTER_VELOCITY = -3500;
+  //public static final double SHOOTER_VELOCITY = -2100;
   public static final double SHOOTER_RPM_TOLERANCE = 50;
   
   //might need to add a driveStraightP vs turnAngleP
