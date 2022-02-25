@@ -4,20 +4,25 @@
 
 package frc.robot;
 
+import java.util.Timer;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.CargoManipulation;
 import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.AutoClimb;
 import frc.robot.commands.ChangeDriveMode;
 import frc.robot.commands.ClimbDown;
 import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DriveStraight;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.IntakeCargo;
+import frc.robot.commands.WaitAutoClimb;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.DriveTrain;
@@ -50,7 +55,7 @@ public class RobotContainer {
   private final Intake intake = new Intake();
   private final JoystickButton buttonX = new JoystickButton(drivePad, 3);
   private final JoystickButton leftBumper = new JoystickButton(drivePad, 5);
-  private final JoystickButton rightBumper = new JoystickButton(drivePad, 6); 
+  private final JoystickButton rightBumper = new JoystickButton(drivePad, 6);
 
   public SendableChooser<String> chooser;
   private final String test = "test";
@@ -59,7 +64,7 @@ public class RobotContainer {
   // private final Intake intake = new Intake();
   // private final JoystickButton buttonX = new JoystickButton(drivePad, 3);
   // private final JoystickButton rightBumper = new JoystickButton(drivePad, 10);
-  // private final JoystickButton startButton = new JoystickButton(drivePad, 8);
+  private final JoystickButton startButton = new JoystickButton(drivePad, 8);
   private final JoystickButton opY = new JoystickButton(opPad, 4);
   private final JoystickButton opA = new JoystickButton(opPad, 1);
 
@@ -77,8 +82,7 @@ public class RobotContainer {
 
     driveTrain.setDefaultCommand(new ArcadeDrive(driveTrain, drivePad));
     configureButtonBindings();
-    //SmartDashboard.putData("idk", new ChangeDriveMode(driveTrain));
-
+    // SmartDashboard.putData("idk", new ChangeDriveMode(driveTrain));
 
     chooser = new SendableChooser<String>();
     chooser.setDefaultOption("Test", test);
@@ -97,20 +101,21 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     rightBumper.whileHeld(new IntakeCargo(intake, true));
-    //leftBumper.whileHeld(new FeederToShooter(intake, shooter));
-     leftBumper.whileHeld(new CargoManipulation(intake, shooter, false));
+    // leftBumper.whileHeld(new FeederToShooter(intake, shooter));
+    leftBumper.whileHeld(new CargoManipulation(intake, shooter, false));
     // buttonX.whenPressed(new IntakeCargo(intake, false));
     // rightBumper.whileHeld(new IntakeCargo(intake, true));
     // leftBumper.whenPressed(new Shoot(shooter));
-
-    opY.whileHeld(new ClimbUp(climber));
-    opA.whileHeld(new ClimbDown(climber));
+    startButton.whenPressed(new SequentialCommandGroup(
+        new AutoClimb(climber, 200000),
+        new WaitAutoClimb(2000),
+        new AutoClimb(climber, -200000)));
+    // opY.whileHeld(new ClimbUp(climber));
+    // opA.whileHeld(new ClimbDown(climber));
 
     // buttonA.whenPressed(new ArcadeDrive(driveTrain, drivePad));
     driveB.whenPressed(new ChangeDriveMode(driveTrain));
   }
-
-  
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
@@ -119,10 +124,10 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    if(chooser.getSelected().equals(test)){
-      
+    if (chooser.getSelected().equals(test)) {
+
     }
-    return new DriveStraight(driveTrain, 60); //in inches
-    //return new TurnToAngle(driveTrain, navX, 90);
+    return new DriveStraight(driveTrain, 60); // in inches
+    // return new TurnToAngle(driveTrain, navX, 90);
   }
 }
