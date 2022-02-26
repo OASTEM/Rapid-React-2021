@@ -29,7 +29,6 @@ public class ArcadeDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-<<<<<<< HEAD
     if(driveTrain.getSlowMode()){
       driveTrain.arcadeDrive((drivePad.getRightAnalogXAxis() * Constants.SLOW_MODE),
           (drivePad.getLeftAnalogYAxis() * Constants.SLOW_MODE));
@@ -40,9 +39,7 @@ public class ArcadeDrive extends CommandBase {
       SmartDashboard.putBoolean("Slow Mode: ", false);
     }
     
-=======
     driveTrain.arcadeDrive((drivePad.getRightAnalogXAxis()*Constants.REGULAR_MODE), (drivePad.getLeftAnalogYAxis()*Constants.REGULAR_MODE*-1));
->>>>>>> 09ea219ae783de3f957c2e80139691d935de9fcc
   }
 
   // Called once the command ends or is interrupted.
