@@ -32,7 +32,7 @@ public final class Constants {
   public static final int SHOOTER_RIGHT_ID = 7;
 
   public static final int CRUISE_VELOCITY = 7000; //max velocity 21500 units per 100ms
-  public static final int ACCELERATION = 3500; 
+  public static final int ACCELERATION = 3500;
 
   public static final double ERROR_ANGLE_TOLERANCE = 5;
 
@@ -42,15 +42,19 @@ public final class Constants {
   public static final double SHOOTER_P = 0.0001;
   public static final double SHOOTER_I = 0;
   public static final double SHOOTER_D = 0;
-  public static final double SHOOTER_F = 0.000174;
+  public static final double SHOOTER_F = 0.000168;
 
   public static final int INTAKE_TOP_SPARK = 8;
   public static final int INTAKE_BOTTOM_SPARK = 9;
   public static final double INTAKE_SPEED = 0.4;
-  public static final double INTAKE_tSPEED = 1;
-  public static final double INTAKE_bSPEED = 0.25;
+  public static final double INTAKE_TSPEED = 1;
+  public static final double INTAKE_BSPEED = 0.25;
 
   public static final double SHOOTER_VELOCITY = -3500;
+<<<<<<< HEAD
+=======
+  //public static final double SHOOTER_VELOCITY = -2100;
+>>>>>>> 09ea219ae783de3f957c2e80139691d935de9fcc
   public static final double SHOOTER_RPM_TOLERANCE = 50;
   
   //might need to add a driveStraightP vs turnAngleP

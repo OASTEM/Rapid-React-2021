@@ -9,7 +9,10 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+<<<<<<< HEAD
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+=======
+>>>>>>> 09ea219ae783de3f957c2e80139691d935de9fcc
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -52,7 +55,7 @@ public class Shooter extends SubsystemBase {
   }
   
    //set velocity
-   public void setVelocity(double velocity){
+  public void setVelocity(double velocity){
     leftPIDController.setReference(velocity, CANSparkMax.ControlType.kVelocity);
     rightPIDController.setReference(velocity, CANSparkMax.ControlType.kVelocity);
   }
@@ -75,10 +78,16 @@ public class Shooter extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+<<<<<<< HEAD
     // System.out.println("Left: " + getLeftVelocity());
     // System.out.println("Right: " + getRightVelocity());
     SmartDashboard.putNumber("Velocity", getLeftVelocity()*1.15);
     SmartDashboard.putNumber("Velocity Num", getLeftVelocity() * 1.15);
     SmartDashboard.putNumber("Left Surface Speed", getLeftVelocity()/60*Math.PI*4/12);
+=======
+    System.out.println("Left: " + getLeftVelocity());
+    System.out.println("Right: " + getRightVelocity());
+    SmartDashboard.putNumber("S Velocity L", getLeftVelocity());
+>>>>>>> 09ea219ae783de3f957c2e80139691d935de9fcc
   }
 }
