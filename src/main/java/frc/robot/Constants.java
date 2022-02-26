@@ -51,10 +51,8 @@ public final class Constants {
   public static final double INTAKE_BSPEED = 0.25;
 
   public static final double SHOOTER_VELOCITY = -3500;
-<<<<<<< HEAD
-=======
   //public static final double SHOOTER_VELOCITY = -2100;
->>>>>>> 09ea219ae783de3f957c2e80139691d935de9fcc
+  
   public static final double SHOOTER_RPM_TOLERANCE = 50;
   
   //might need to add a driveStraightP vs turnAngleP
