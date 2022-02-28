@@ -44,8 +44,8 @@ public final class Constants {
   public static final double SHOOTER_D = 0;
   public static final double SHOOTER_F = 0.000168;
 
-  public static final int INTAKE_TOP_SPARK = 8;
-  public static final int INTAKE_BOTTOM_SPARK = 9;
+  public static final int INTAKE_TOP_SPARK = 9;
+  public static final int INTAKE_BOTTOM_SPARK = 8;
   public static final double INTAKE_SPEED = 0.4;
   public static final double INTAKE_TSPEED = 1;
   public static final double INTAKE_BSPEED = 0.25;

@@ -31,6 +31,7 @@ public class CargoManipulation extends CommandBase {
     if (isIntaking == true) {
       intake.intakeTopMotor(Constants.INTAKE_TSPEED);
       intake.intakeBottomMotor(Constants.INTAKE_BSPEED);
+      System.out.print("just intaking");
     } else {
       shooter.setVelocity(Constants.SHOOTER_VELOCITY);
     }
