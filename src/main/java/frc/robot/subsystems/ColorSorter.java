@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import java.util.List;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
@@ -25,14 +27,15 @@ public class ColorSorter extends SubsystemBase {
 
   private final Color blueBall = new Color(0.185, 0.420, 0.395);
   private final Color redBall = new Color(0.627, 0.310, 0.063);
-
+  private final String[] colorList = { "Blue", "Red"};
   private String colorString;
-  
+
   /** Creates a new ColorSorter. */
   public ColorSorter() {
     m_colorMatcher.addColorMatch(blueBall);
     m_colorMatcher.addColorMatch(redBall);
     colorString = "";
+
   }
 
   @Override
@@ -41,14 +44,26 @@ public class ColorSorter extends SubsystemBase {
     m_colorMatcher.setConfidenceThreshold(.050);
     ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
     if (result.color == blueBall){
-      colorString = "blue";
+      colorString = "Blue";
     }
     else if (result.color == redBall) {
-      colorString = "red";
+      colorString = "Red";
     }
     else {
       colorString = "Unknown";
     // This method will be called once per scheduler run
   }
+  
+}
+
+public String getColor() {
+  int colorInt = 0;
+
+  for (int i = 0; i < 4; i++) {
+    if (colorString.equals(colorList[i])) {
+      colorInt = i;
+    }
+  }
+  return colorList[colorInt];
 }
 }

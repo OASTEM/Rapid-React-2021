@@ -19,8 +19,10 @@ import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DriveStraight;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.IntakeCargo;
+import frc.robot.commands.SortColor;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.ColorSorter;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.NavX;
@@ -64,6 +66,8 @@ public class RobotContainer {
   private final JoystickButton opY = new JoystickButton(opPad, 4);
   private final JoystickButton opA = new JoystickButton(opPad, 1);
   
+
+  private final JoystickButton opX = new JoystickButton(opPad, 3);
 
   // private final LogitechGamingPad drivePad = new LogitechGamingPad(0);
   // private final JoystickButton leftBumper = new JoystickButton(drivePad, 9);
@@ -113,6 +117,8 @@ public class RobotContainer {
     driveB.whileHeld(new ClimbUp(climber));
     //driveA.whenPressed(new Calibration(climber));
     driveA.whileHeld(new ClimbDown(climber));
+
+    opX.whenPressed(new SortColor(colorSorter));
   }
 
   /**
