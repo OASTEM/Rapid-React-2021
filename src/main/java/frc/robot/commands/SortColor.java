@@ -20,12 +20,14 @@ public class SortColor extends CommandBase {
   @Override
   public void initialize() {
     // colorSorter.getColor();
-    System.out.println(colorSorter.getColor());
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    System.out.println("Rishi");
+    // System.out.println(colorSorter.getColor());
+  }
 
   // Called once the command ends or is interrupted.
   @Override

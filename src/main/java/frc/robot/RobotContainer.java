@@ -118,7 +118,7 @@ public class RobotContainer {
     //driveA.whenPressed(new Calibration(climber));
     driveA.whileHeld(new ClimbDown(climber));
 
-    buttonX.whenPressed(new SortColor(colorSorter));
+    buttonX.whileHeld(new SortColor(colorSorter));
   }
 
   /**
