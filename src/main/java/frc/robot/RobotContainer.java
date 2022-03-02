@@ -49,6 +49,7 @@ public class RobotContainer {
   private final Shooter shooter = new Shooter();
   private final Climber climber = new Climber();
   private final NavX navX = new NavX();
+  private final ColorSorter colorSorter = new ColorSorter();
 
   private final Intake intake = new Intake();
   private final JoystickButton buttonX = new JoystickButton(drivePad, 3);
@@ -67,7 +68,6 @@ public class RobotContainer {
   private final JoystickButton opA = new JoystickButton(opPad, 1);
   
 
-  private final JoystickButton opX = new JoystickButton(opPad, 3);
 
   // private final LogitechGamingPad drivePad = new LogitechGamingPad(0);
   // private final JoystickButton leftBumper = new JoystickButton(drivePad, 9);
@@ -118,7 +118,7 @@ public class RobotContainer {
     //driveA.whenPressed(new Calibration(climber));
     driveA.whileHeld(new ClimbDown(climber));
 
-    opX.whenPressed(new SortColor(colorSorter));
+    buttonX.whenPressed(new SortColor(colorSorter));
   }
 
   /**
