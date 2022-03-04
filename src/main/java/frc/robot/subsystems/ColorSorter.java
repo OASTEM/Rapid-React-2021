@@ -42,7 +42,7 @@ public class ColorSorter extends SubsystemBase {
   public void periodic() {
     System.out.println("color sorter periodic");
     Color detectedColor = m_colorSensor.getColor();
-    m_colorMatcher.setConfidenceThreshold(0.1);
+    // m_colorMatcher.setConfidenceThreshold(0.95);
     ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
     //System.out.println("Result " + result.color);
     // System.out.println("Detected Color" + detectedColor);
