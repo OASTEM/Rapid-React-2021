@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import frc.robot.subsystems.ColorSorter;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 
@@ -17,7 +18,7 @@ public class FeederToShooter extends ParallelCommandGroup {
   public FeederToShooter(Intake intake, Shooter shooter) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new Shoot(shooter), new IntakeCargo(intake, false));
+    addCommands(new Shoot(shooter), new IntakeCargo(intake, false, colorSorter));
 
     
 

@@ -41,23 +41,49 @@ public class ColorSorter extends SubsystemBase {
   @Override
   public void periodic() {
     System.out.println("color sorter periodic");
-    Color detectedColor = m_colorSensor.getColor();
-    // m_colorMatcher.setConfidenceThreshold(0.95);
-    ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
+    // Color detectedColor = m_colorSensor.getColor();
+    // // m_colorMatcher.setConfidenceThreshold(0.95);
+    // ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
     //System.out.println("Result " + result.color);
     // System.out.println("Detected Color" + detectedColor);
-    if (result.color == blueBall){
-      colorString = "Blue";
-    }
-    else if (result.color == redBall) {
-      colorString = "Red";
-    }
-    else {
-      colorString = "Unknown";
-    // This method will be called once per scheduler run
-  }
+  //   if (result.color == blueBall){
+  //     colorString = "Blue";
+  //   }
+  //   else if (result.color == redBall) {
+  //     colorString = "Red";
+  //   }
+  //   else {
+  //     colorString = "Unknown";
+  //   // This method will be called once per scheduler run
+  // }
   System.out.println(colorString);
 }
+public String getBallColor() {
+  Color detectedColor = m_colorSensor.getColor();
+  // m_colorMatcher.setConfidenceThreshold(0.95);
+  ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
+  if (result.color == blueBall){
+    colorString = "Blue";
+    return colorString;
+  }
+  else if (result.color == redBall) {
+    colorString = "Red";
+    return colorString;
+  }
+  else {
+    colorString = "Unknown";
+    return colorString;
+  // This method will be called once per scheduler run
+  }
+}
+
+
+
+
+
+
+
+
 
 //  public String getColor() {
 //   int colorInt = 0;

@@ -6,13 +6,19 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.ColorSorter;
+import frc.robot.subsystems.Intake;
 
 public class SortColor extends CommandBase {
   private final ColorSorter colorSorter;
+  private Intake intake;
+  public boolean isIntaking;
   /** Creates a new SortColor. */
-  public SortColor(ColorSorter colorSorter) {
+  public SortColor(ColorSorter colorSorter, Intake intake, boolean isIntaking) {
     addRequirements(colorSorter);
+    addRequirements(intake);
     this.colorSorter = colorSorter;
+    this.intake = intake;
+    this.isIntaking = isIntaking;
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -25,6 +31,9 @@ public class SortColor extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    if (isIntaking == true){
+
+    }
     System.out.println("Rishi");
     // System.out.println(colorSorter.getColor());
   }

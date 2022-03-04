@@ -6,6 +6,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import frc.robot.subsystems.ColorSorter;
 import frc.robot.subsystems.Intake;
 
 public class IntakeCargo extends CommandBase {
@@ -13,11 +14,14 @@ public class IntakeCargo extends CommandBase {
   private final Intake intake; 
   public boolean isIntaking;
   public Timer timer;
+  public ColorSorter colorSorter;
 
 
-  public IntakeCargo(Intake intake,boolean isIntaking) {
+  public IntakeCargo(Intake intake,boolean isIntaking, ColorSorter colorSorter) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(intake);
+    addRequirements(colorSorter);
+    this.colorSorter = colorSorter;
     this.intake = intake;
     this.isIntaking = isIntaking;
     this.timer = new Timer(); 
