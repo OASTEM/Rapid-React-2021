@@ -40,7 +40,7 @@ public class ColorSorter extends SubsystemBase {
 
   @Override
   public void periodic() {
-    System.out.println("color sorter periodic");
+    System.out.println(getBallColor());
     // Color detectedColor = m_colorSensor.getColor();
     // // m_colorMatcher.setConfidenceThreshold(0.95);
     // ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
