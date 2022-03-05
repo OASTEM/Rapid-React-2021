@@ -34,7 +34,6 @@ public class SortColor extends CommandBase {
     if (isIntaking == true){
 
     }
-    System.out.println("Rishi");
     // System.out.println(colorSorter.getColor());
   }
 
