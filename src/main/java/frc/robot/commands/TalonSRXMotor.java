@@ -3,13 +3,14 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.commands;
-
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class TaloxFRXTest extends CommandBase {
-  /** Creates a new TaloxFRXTest. */
-  private TaloxSRX taloxSRX;
-  public TaloxFRXTest() {
+public class TalonSRXMotor extends CommandBase {
+  /** Creates a new TalonSRX. */
+  private TalonSRX test;
+  public TalonSRXMotor() {
+    TalonSRX test = new TalonSRX(0);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -19,7 +20,9 @@ public class TaloxFRXTest extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    test(5);
+  }
 
   // Called once the command ends or is interrupted.
   @Override
