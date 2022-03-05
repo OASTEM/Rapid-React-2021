@@ -58,7 +58,7 @@ public class ColorSorter extends SubsystemBase {
   // }
   System.out.println(colorString);
 }
-public static String getBallColor() {
+public String getBallColor() {
   Color detectedColor = m_colorSensor.getColor();
   // m_colorMatcher.setConfidenceThreshold(0.95);
   ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);

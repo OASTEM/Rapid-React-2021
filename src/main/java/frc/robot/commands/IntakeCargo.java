@@ -38,6 +38,9 @@ public class IntakeCargo extends CommandBase {
       if (ColorSorter.getBallColor() == Constants.ALLIANCE_COLOR) {
       intake.intakeTopMotor(Constants.INTAKE_TOP_SPEED);
       intake.intakeBottomMotor(Constants.INTAKE_BOTTOM_SPEED);
+      } else {
+        intake.intakeTopMotor(Constants.INTAKE_TOP_SPEED*-1);
+        intake.intakeBottomMotor(Constants.INTAKE_BOTTOM_SPEED*-1);
       }
     } else {
       timer.start();
