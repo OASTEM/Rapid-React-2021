@@ -102,7 +102,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    rightBumper.whileHeld(new IntakeCargo(intake, true));
+    //rightBumper.whileHeld(new IntakeCargo(intake, true));
     // leftBumper.whileHeld(new FeederToShooter(intake, shooter));
     leftBumper.whileHeld(new CargoManipulation(intake, shooter, false));
     // buttonX.whenPressed(new IntakeCargo(intake, false));
@@ -118,7 +118,7 @@ public class RobotContainer {
     //driveA.whenPressed(new Calibration(climber));
     driveA.whileHeld(new ClimbDown(climber));
 
-    buttonX.whileHeld(new SortColor(colorSorter));
+    //buttonX.whileHeld(new SortColor(colorSorter));
   }
 
   /**

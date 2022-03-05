@@ -14,13 +14,11 @@ public class CargoManipulation extends CommandBase {
   private final Intake intake; 
   private Shooter shooter;
   public boolean isIntaking;
-  public ColorSorter colorSorter;
 
-  public CargoManipulation(Intake intake, Shooter shooter, boolean isIntaking, ColorSorter colorSorter) {
+  public CargoManipulation(Intake intake, Shooter shooter, boolean isIntaking) {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(intake, shooter, colorSorter);
+    addRequirements(intake, shooter);
     this.intake = intake;
-    this.colorSorter = colorSorter;
     this.shooter = shooter;
     this.isIntaking = isIntaking;
   }
