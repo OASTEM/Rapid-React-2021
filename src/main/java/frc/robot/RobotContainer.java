@@ -102,7 +102,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    //rightBumper.whileHeld(new IntakeCargo(intake, true));
+    rightBumper.whileHeld(new ntakeCargo(intake, true));
     // leftBumper.whileHeld(new FeederToShooter(intake, shooter));
     leftBumper.whileHeld(new CargoManipulation(intake, shooter, false));
     // buttonX.whenPressed(new IntakeCargo(intake, false));
