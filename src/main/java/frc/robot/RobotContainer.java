@@ -18,7 +18,6 @@ import frc.robot.commands.ClimbDown;
 import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DriveStraight;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.IntakeCargo;
 import frc.robot.commands.SortColor;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Climber;
@@ -102,7 +101,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    rightBumper.whileHeld(new ntakeCargo(intake, true));
+    rightBumper.whileHeld(new CargoManipulation(intake, shooter, true));
     // leftBumper.whileHeld(new FeederToShooter(intake, shooter));
     leftBumper.whileHeld(new CargoManipulation(intake, shooter, false));
     // buttonX.whenPressed(new IntakeCargo(intake, false));
