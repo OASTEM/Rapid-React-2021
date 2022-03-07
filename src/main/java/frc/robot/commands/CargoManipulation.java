@@ -21,6 +21,7 @@ public class CargoManipulation extends CommandBase {
     this.intake = intake;
     this.shooter = shooter;
     this.isIntaking = isIntaking;
+
   }
 
   // Called when the command is initially scheduled.

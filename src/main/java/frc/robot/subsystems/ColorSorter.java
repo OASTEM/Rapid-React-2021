@@ -28,7 +28,7 @@ public class ColorSorter extends SubsystemBase {
   private final Color blueBall = new Color(0.143, 0.427, 0.429);
   private final Color redBall = new Color(0.561, 0.232, 0.114);
   private final String[] colorList = { "Blue", "Red"};
-  private String colorString;
+  public String colorString;
 
   /** Creates a new ColorSorter. */
   public ColorSorter() {
@@ -40,41 +40,41 @@ public class ColorSorter extends SubsystemBase {
 
   @Override
   public void periodic() {
-    System.out.println(getBallColor());
-    // Color detectedColor = m_colorSensor.getColor();
-    // // m_colorMatcher.setConfidenceThreshold(0.95);
-    // ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
-    //System.out.println("Result " + result.color);
-    // System.out.println("Detected Color" + detectedColor);
-  //   if (result.color == blueBall){
-  //     colorString = "Blue";
-  //   }
-  //   else if (result.color == redBall) {
-  //     colorString = "Red";
-  //   }
-  //   else {
-  //     colorString = "Unknown";
-  //   // This method will be called once per scheduler run
-  // }
+    // System.out.println(getBallColor());
+    Color detectedColor = m_colorSensor.getColor();
+    // m_colorMatcher.setConfidenceThreshold(0.95);
+    ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
+    System.out.println("Result " + result.color);
+    System.out.println("Detected Color" + detectedColor);
+    if (result.color == blueBall){
+      colorString = "Blue";
+    }
+    else if (result.color == redBall) {
+      colorString = "Red";
+    }
+    else {
+      colorString = "Unknown";
+    // This method will be called once per scheduler run
+  }
   System.out.println(colorString);
 }
-public String getBallColor() {
-  Color detectedColor = m_colorSensor.getColor();
-  // m_colorMatcher.setConfidenceThreshold(0.95);
-  ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
-  if (result.color == blueBall){
-    colorString = "Blue";
-    return colorString;
-  }
-  else if (result.color == redBall) {
-    colorString = "Red";
-    return colorString;
-  }
-  else {
-    colorString = "Unknown";
-    return colorString;
-  // This method will be called once per scheduler run
-  }
+// public void getBallColor() {
+//   Color detectedColor = m_colorSensor.getColor();
+//   // m_colorMatcher.setConfidenceThreshold(0.95);
+//   ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
+//   if (result.color == blueBall){
+//     colorString = "Blue";
+//     // return colorString;
+//   }
+//   else if (result.color == redBall) {
+//     colorString = "Red";
+//     // return colorString;
+//   }
+//   else {
+//     colorString = "Unknown";
+//     // return colorString;
+//   // This method will be called once per scheduler run
+//   }
 }
 
 
@@ -95,4 +95,4 @@ public String getBallColor() {
 //   }
 //   return colorList[colorInt];
 // }
-}
+//}
