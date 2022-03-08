@@ -1,7 +1,7 @@
 package frc.robot.subsystems;
 
-// import org.json.simple.JSONObject;
-// import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.JSONObject;
 
 import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.cscore.VideoMode;
@@ -13,6 +13,8 @@ public class Jevois extends SubsystemBase {
 
   private SerialPort camPort;
   private UsbCamera jevoisUSBCamera;
+  public double x = -1;
+  public double y = -1;
 
   public Jevois() {
     jevoisUSBCamera = new UsbCamera("cam0", 1);
@@ -54,11 +56,41 @@ public class Jevois extends SubsystemBase {
 
   @Override
   public void periodic(){
-    String data = camPort.readString();
-    System.out.println(data);
-    
+    // String data = camPort.readString();
+    // System.out.println(data);
+    // JSONObject obj = new JSONObject(data);
+    // x = data.getString("x");
+    // y = camPort.getString("y");
+    try {
+      String data = camPort.readString();
+      System.out.println(data);
+      JSONParser parser = new JSONParser();
+      JSONObject jsonData;
+
+      if (data.length() > 0) {
+        jsonData = (JSONObject) parser.parse(data);
+        x = (Double) jsonData.get("x");
+        y = (Double) jsonData.get("y");
+        
+      } else {
+        x = -1;
+        y = -1;
+      }
+    } catch (Exception e) {
+      x = -1;
+      y = -1;
+      System.out.println("Jevois Error ****");
+      System.out.println(e);
+    }
   }
 
+  public double getY(){
+    return y;
+  }
+  
+  public double getX(){
+    return x;
+  }
   // public void backgroundUpdate() {
   //   try {
   //     String data = camPort.readString();

@@ -77,6 +77,10 @@ public final class Constants {
   public static final double CLIMBER_UP_ENCODER_LEFT = 236000;
   public static final double CLIMBER_UP_ENCODER_RIGHT = 225000;
 
+  public static final double JEVOIS_FOV_X = 30;
+  public static final double JEVOIS_PX_WIDTH = 320;
+  public static final double JEVOIS_ERROR_ANGLE_TOLERANCE = 2;
+
   // might need to add a driveStraightP vs turnAngleP
   // might also need leftPID vs rightPID bc of motor controllers
 
