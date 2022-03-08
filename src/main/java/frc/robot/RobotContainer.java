@@ -101,7 +101,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     rightBumper.whileHeld(new IntakeCargo(intake, true));
     // leftBumper.whileHeld(new FeederToShooter(intake, shooter));
-    leftBumper.whileHeld(new CargoManipulation(intake, shooter, false));
+    leftBumper.whileHeld(new CargoManipulation(intake, shooter, false, jevois, driveTrain, navX));
     // buttonX.whenPressed(new IntakeCargo(intake, false));
     // rightBumper.whileHeld(new IntakeCargo(intake, true));
     // leftBumper.whenPressed(new Shoot(shooter));
