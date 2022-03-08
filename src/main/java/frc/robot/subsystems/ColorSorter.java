@@ -58,23 +58,23 @@ public class ColorSorter extends SubsystemBase {
   }
   System.out.println(colorString);
 }
-// public void getBallColor() {
-//   Color detectedColor = m_colorSensor.getColor();
-//   // m_colorMatcher.setConfidenceThreshold(0.95);
-//   ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
-//   if (result.color == blueBall){
-//     colorString = "Blue";
-//     // return colorString;
-//   }
-//   else if (result.color == redBall) {
-//     colorString = "Red";
-//     // return colorString;
-//   }
-//   else {
-//     colorString = "Unknown";
-//     // return colorString;
-//   // This method will be called once per scheduler run
-//   }
+/* public void getBallColor() {
+   Color detectedColor = m_colorSensor.getColor();
+   // m_colorMatcher.setConfidenceThreshold(0.95);
+   ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
+   if (result.color == blueBall){
+     colorString = "Blue";
+     // return colorString;
+   }
+   else if (result.color == redBall) {
+     colorString = "Red";
+     // return colorString;
+   }
+   else {
+     colorString = "Unknown";
+     // return colorString;
+   // This method will be called once per scheduler run
+   */   }
 }
 
 
