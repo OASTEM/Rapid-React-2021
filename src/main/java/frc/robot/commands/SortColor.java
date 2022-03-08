@@ -12,6 +12,7 @@ public class SortColor extends CommandBase {
   private final ColorSorter colorSorter;
   private Intake intake;
   public boolean isIntaking;
+  public String color;
   /** Creates a new SortColor. */
   public SortColor(ColorSorter colorSorter, Intake intake, boolean isIntaking) {
     addRequirements(colorSorter);
@@ -19,13 +20,14 @@ public class SortColor extends CommandBase {
     this.colorSorter = colorSorter;
     this.intake = intake;
     this.isIntaking = isIntaking;
+    color = colorSorter.colorString;
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    // colorSorter.getColor();
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
