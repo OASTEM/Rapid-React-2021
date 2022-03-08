@@ -19,12 +19,6 @@ public class SortColorBlue extends ParallelCommandGroup {
 
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new SortColor(colorSorter, intake, true), new CargoManipulation(intake, shooter, true));
+    addCommands(new SortColor(colorSorter, intake, true, "Blue"), new CargoManipulation(intake, shooter, true));
   }
-  // public void initialize() {
-  //   if (color == "Red") {
-  //     intake.intakeTopMotor(-1); //Will need to set actual speed to send opposing alliance's balls
-  //     intake.intakeBottomMotor(1);
-  //   }
-  // }
 }

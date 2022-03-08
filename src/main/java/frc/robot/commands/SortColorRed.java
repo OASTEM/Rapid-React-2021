@@ -16,6 +16,6 @@ import frc.robot.Constants;
 public class SortColorRed extends ParallelCommandGroup {
   /** Creates a new SortColorRed. */
   public SortColorRed(ColorSorter colorSorter, Intake intake, Shooter shooter) {
-    addCommands(new SortColor(colorSorter, intake, true), new CargoManipulation(intake, shooter, true));
+    addCommands(new SortColor(colorSorter, intake, true, "Red"), new CargoManipulation(intake, shooter, true));
   }
 }

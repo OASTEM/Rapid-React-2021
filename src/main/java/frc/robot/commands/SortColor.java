@@ -13,13 +13,15 @@ public class SortColor extends CommandBase {
   private Intake intake;
   public boolean isIntaking;
   public String color;
+  public String chosenColor;
   /** Creates a new SortColor. */
-  public SortColor(ColorSorter colorSorter, Intake intake, boolean isIntaking) {
+  public SortColor(ColorSorter colorSorter, Intake intake, boolean isIntaking, String chosenColor) {
     addRequirements(colorSorter);
     addRequirements(intake);
     this.colorSorter = colorSorter;
     this.intake = intake;
     this.isIntaking = isIntaking;
+    this.chosenColor = chosenColor; 
     color = colorSorter.colorString;
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -34,7 +36,7 @@ public class SortColor extends CommandBase {
   @Override
   public void execute() {
     if (isIntaking == true){
-
+      color = colorSorter.colorString;
     }
     // System.out.println(colorSorter.getColor());
   }
