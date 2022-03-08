@@ -19,10 +19,6 @@ public class Jevois extends SubsystemBase {
     jevoisUSBCamera.setVideoMode(VideoMode.PixelFormat.kYUYV, 640, 480, 20);
   }
 
-  @Override
-  public void periodic() {
-  }
-
   public void initializeSerialPort() {
     try {
 
@@ -56,7 +52,8 @@ public class Jevois extends SubsystemBase {
     }
   }
 
-  public void readJevoisData(){
+  @Override
+  public void periodic(){
     String data = camPort.readString();
     System.out.println(data);
     

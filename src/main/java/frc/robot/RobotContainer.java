@@ -25,6 +25,7 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.NavX;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Jevois;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -46,6 +47,7 @@ public class RobotContainer {
   private final DriveTrain driveTrain = new DriveTrain();
   private final Shooter shooter = new Shooter();
   private final Climber climber = new Climber();
+  private final Jevois jevois = new Jevois();
   private final NavX navX = new NavX();
 
   private final Intake intake = new Intake();
