@@ -4,6 +4,9 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.ColorSorter;
 import frc.robot.subsystems.Intake;
@@ -14,6 +17,7 @@ public class SortColor extends CommandBase {
   public boolean isIntaking;
   public String color;
   public String chosenColor;
+  public SendableChooser<String> chooser;
   /** Creates a new SortColor. */
   public SortColor(ColorSorter colorSorter, Intake intake, boolean isIntaking, String chosenColor) {
     addRequirements(colorSorter);
@@ -49,5 +53,18 @@ public class SortColor extends CommandBase {
   @Override
   public boolean isFinished() {
     return false;
+  }
+
+  public Command chooseBlueRedCommand() {
+    // An ExampleCommand will run in autonomous
+    if(chooser.getSelected().equals(red)) {
+      return red;
+    }
+    else if(chooser.getSelected().equals(blue)) {
+      return blue;
+    }
+    else {
+      return new DriveDistance(-10, "B", 0);
+    }
   }
 }
