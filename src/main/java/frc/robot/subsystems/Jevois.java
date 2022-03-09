@@ -11,6 +11,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Jevois extends SubsystemBase {
 
+  /**
+   *
+   */
+  private static final int baudrate = 921600;
   private SerialPort camPort;
   private UsbCamera jevoisUSBCamera;
   public double x = -1;
@@ -18,15 +22,14 @@ public class Jevois extends SubsystemBase {
 
   public Jevois() {
     jevoisUSBCamera = new UsbCamera("cam0", 1);
-    jevoisUSBCamera.setVideoMode(VideoMode.PixelFormat.kYUYV, 640, 480, 20);
-  }
-
-  public void initializeSerialPort() {
+    boolean setVidMode = jevoisUSBCamera.setVideoMode(VideoMode.PixelFormat.kYUYV, 640, 480, 20);
+    System.out.println("setvidmode: " + setVidMode);
+    System.out.println("INITALIZING JEVOIS ***** YAYAYAYAAYAYA");
     try {
-
       System.out.println("1st Try");
+      // 921600
 
-      camPort = new SerialPort(921600, SerialPort.Port.kUSB);
+      camPort = new SerialPort(baudrate, SerialPort.Port.kUSB2);
 
     } catch (Exception e) {
 
@@ -34,7 +37,7 @@ public class Jevois extends SubsystemBase {
 
       try {
 
-        camPort = new SerialPort(921600, SerialPort.Port.kUSB1);
+        camPort = new SerialPort(baudrate, SerialPort.Port.kUSB);
 
       } catch (Exception j) {
 
@@ -42,7 +45,7 @@ public class Jevois extends SubsystemBase {
 
           System.out.println("Error - 3rd Try");
 
-          camPort = new SerialPort(921600, SerialPort.Port.kUSB2);
+          camPort = new SerialPort(baudrate, SerialPort.Port.kUSB1);
 
         } catch (Exception k) {
 
@@ -61,21 +64,30 @@ public class Jevois extends SubsystemBase {
     // JSONObject obj = new JSONObject(data);
     // x = data.getString("x");
     // y = camPort.getString("y");
+    System.out.println("JEVOIS PERIODIC IS ON *****");
     try {
       String data = camPort.readString();
+      System.out.println("trying to print and get data ");
       System.out.println(data);
-      JSONParser parser = new JSONParser();
-      JSONObject jsonData;
+      // JSONParser parser = new JSONParser();
+      // JSONObject jsonData;
 
-      if (data.length() > 0) {
-        jsonData = (JSONObject) parser.parse(data);
-        x = (Double) jsonData.get("x");
-        y = (Double) jsonData.get("y");
-        
-      } else {
-        x = -1;
-        y = -1;
-      }
+      // int stuff = camPort.getBytesReceived();
+      // System.out.println(stuff);
+      // byte[] otherStuff = camPort.read(100);
+      // System.out.println(otherStuff[0]);
+
+
+      // if (data.length() > 0) {
+      //   jsonData = (JSONObject) parser.parse(data);
+      //   x = (Double) jsonData.get("x");
+      //   y = (Double) jsonData.get("y");
+      //   System.out.println("x is ");
+      //   System.out.println(x);
+      // } else {
+      //   x = -1;
+      //   y = -1;
+      // }
     } catch (Exception e) {
       x = -1;
       y = -1;
