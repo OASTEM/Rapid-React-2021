@@ -4,6 +4,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.JSONObject;
 
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.MjpegServer;
 import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.cscore.VideoMode;
 
@@ -24,43 +25,43 @@ public class Jevois extends SubsystemBase {
   public double y = -1;
 
   public Jevois() {
-    jevoisUSBCamera = new UsbCamera("cam0", 1);
-    jevoisCameraServer = CameraServer.getInstance();
-    jevoisUSBCamera = jevoisCameraServer.startAutomaticCapture();
+    // jevoisUSBCamera = new UsbCamera("cam0", 1);
+    jevoisUSBCamera = CameraServer.startAutomaticCapture();
 
-    boolean setVidMode = jevoisUSBCamera.setVideoMode(VideoMode.PixelFormat.kYUYV, 640, 480, 20);
-    System.out.println("setvidmode: " + setVidMode);
-    System.out.println("INITALIZING JEVOIS ***** YAYAYAYAAYAYA");
-    try {
-      System.out.println("1st Try");
-      // 921600
+    // boolean setVidMode = jevoisUSBCamera.setVideoMode(VideoMode.PixelFormat.kYUYV, 640, 480, 20);
 
-      camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB2);
+    // System.out.println("setvidmode: " + setVidMode);
+    // System.out.println("INITALIZING JEVOIS ***** YAYAYAYAAYAYA");
+    // try {
+    //   System.out.println("1st Try");
+    //   // 921600
 
-    } catch (Exception e) {
+    //   camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB2);
 
-      System.out.println("Error - 2nd Try");
+    // } catch (Exception e) {
 
-      try {
+    //   System.out.println("Error - 2nd Try");
 
-        camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB);
+    //   try {
 
-      } catch (Exception j) {
+    //     camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB);
 
-        try {
+    //   } catch (Exception j) {
 
-          System.out.println("Error - 3rd Try");
+    //     try {
 
-          camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB1);
+    //       System.out.println("Error - 3rd Try");
 
-        } catch (Exception k) {
+    //       camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB1);
 
-          System.out.println("Could not connect robot to jevois");
+    //     } catch (Exception k) {
 
-        }
+    //       System.out.println("Could not connect robot to jevois");
 
-      }
-    }
+    //     }
+
+    //   }
+    // }
   }
 
   @Override
