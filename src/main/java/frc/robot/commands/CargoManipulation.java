@@ -18,6 +18,7 @@ public class CargoManipulation extends CommandBase {
   public boolean isAuto = false;
   private Timer timer;
   public double shooterVelocity = Constants.SHOOTER_VELOCITY;
+  public int pulseShooter;
 
   public CargoManipulation(Intake intake, Shooter shooter, boolean isIntaking, boolean isAuto) {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -27,6 +28,7 @@ public class CargoManipulation extends CommandBase {
     this.isIntaking = isIntaking;
     this.isAuto = isAuto;
     timer = new Timer();
+    pulseShooter = 0;
   }
 
   public CargoManipulation(Intake intake, Shooter shooter, boolean isIntaking, boolean isAuto, double shooterVelocity) {
@@ -38,6 +40,7 @@ public class CargoManipulation extends CommandBase {
     this.isAuto = true;
     timer = new Timer();
     this.shooterVelocity = shooterVelocity;
+    pulseShooter = 0;
 
   }
 
@@ -57,6 +60,7 @@ public class CargoManipulation extends CommandBase {
     } else {
       shooter.setVelocity(shooterVelocity);
     }
+    pulseShooter = 0;
   }
 
   // Called every time the scheduler runs while the command is scheduled
@@ -66,8 +70,19 @@ public class CargoManipulation extends CommandBase {
   public void execute() {
     error = Math.abs(shooterVelocity - shooter.getLeftVelocity());
     if (isIntaking == false && error <= Constants.SHOOTER_RPM_TOLERANCE) {
-      intake.intakeTopMotor(Constants.INTAKE_SPEED * -1);
-      intake.intakeBottomMotor(Constants.INTAKE_SPEED);
+      pulseShooter++;
+      if(pulseShooter < Constants.SHOOTER_PULSE_COUNT){
+        intake.intakeTopMotor(Constants.INTAKE_SPEED * -1);
+        intake.intakeBottomMotor(Constants.INTAKE_SPEED);
+      } else {
+        intake.intakeTopMotor(0);
+        intake.intakeBottomMotor(0);
+      }
+
+      if(pulseShooter > Constants.SHOOTER_PULSE_COUNT*2){
+        pulseShooter = 0;
+      }
+      
     }
   }
 
