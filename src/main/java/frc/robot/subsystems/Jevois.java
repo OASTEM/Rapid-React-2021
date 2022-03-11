@@ -31,37 +31,37 @@ public class Jevois extends SubsystemBase {
     // boolean setVidMode = jevoisUSBCamera.setVideoMode(VideoMode.PixelFormat.kYUYV, 640, 480, 20);
 
     // System.out.println("setvidmode: " + setVidMode);
-    // System.out.println("INITALIZING JEVOIS ***** YAYAYAYAAYAYA");
-    // try {
-    //   System.out.println("1st Try");
-    //   // 921600
+    System.out.println("INITALIZING JEVOIS ***** YAYAYAYAAYAYA");
+    try {
+      System.out.println("1st Try");
+      // 921600
 
-    //   camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB2);
+      camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB2);
 
-    // } catch (Exception e) {
+    } catch (Exception e) {
 
-    //   System.out.println("Error - 2nd Try");
+      System.out.println("Error - 2nd Try");
 
-    //   try {
+      try {
 
-    //     camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB);
+        camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB);
 
-    //   } catch (Exception j) {
+      } catch (Exception j) {
 
-    //     try {
+        try {
 
-    //       System.out.println("Error - 3rd Try");
+          System.out.println("Error - 3rd Try");
 
-    //       camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB1);
+          camPort = new SerialPort(BAUDRATE, SerialPort.Port.kUSB1);
 
-    //     } catch (Exception k) {
+        } catch (Exception k) {
 
-    //       System.out.println("Could not connect robot to jevois");
+          System.out.println("Could not connect robot to jevois");
 
-    //     }
+        }
 
-    //   }
-    // }
+      }
+    }
   }
 
   @Override
