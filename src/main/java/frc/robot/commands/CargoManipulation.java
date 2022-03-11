@@ -78,6 +78,7 @@ public class CargoManipulation extends CommandBase {
         System.out.println("setting speed to 0");
         intake.intakeTopMotor(0);
         intake.intakeBottomMotor(0);
+        intake.stop();
       }
 
       if(pulseShooter > Constants.SHOOTER_PULSE_COUNT*2){
