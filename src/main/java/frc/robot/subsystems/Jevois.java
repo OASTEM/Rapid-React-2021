@@ -25,8 +25,7 @@ public class Jevois extends SubsystemBase {
   public double y = -1;
 
   public Jevois() {
-    // jevoisUSBCamera = new UsbCamera("cam0", 1);
-    jevoisUSBCamera = CameraServer.startAutomaticCapture();
+    jevoisUSBCamera = new UsbCamera("cam0", 1);
 
     // stuff = CameraServer.addAxisCamera();
     // boolean setVidMode = jevoisUSBCamera.setVideoMode(VideoMode.PixelFormat.kYUYV, 640, 480, 20);
