@@ -4,7 +4,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.JSONObject;
 
 import edu.wpi.first.cameraserver.CameraServer;
-import edu.wpi.first.cscore.MjpegServer;
+// import edu.wpi.first.cscore.MjpegServer;
 import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.cscore.VideoMode;
 
@@ -19,13 +19,17 @@ public class Jevois extends SubsystemBase {
    */
   private static final int BAUDRATE = 921600;
   private SerialPort camPort;
-  private UsbCamera jevoisUSBCamera;
-  private CameraServer jevoisCameraServer;
+  private UsbCamera cam;
+  // private CameraServer jevoisCameraServer;
   public double x = -1;
   public double y = -1;
 
+
   public Jevois() {
-    jevoisUSBCamera = new UsbCamera("cam0", 1);
+    cam = CameraServer.startAutomaticCapture();
+
+    cam.setVideoMode(VideoMode.PixelFormat.kYUYV, 640, 480, 20);
+
 
     // stuff = CameraServer.addAxisCamera();
     // boolean setVidMode = jevoisUSBCamera.setVideoMode(VideoMode.PixelFormat.kYUYV, 640, 480, 20);
@@ -126,7 +130,7 @@ public class Jevois extends SubsystemBase {
   // }
 
   public void destroy() {
-    jevoisUSBCamera.close();
+    cam.close();
   }
 
 }
