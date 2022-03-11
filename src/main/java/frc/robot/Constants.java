@@ -30,9 +30,9 @@ public final class Constants {
   public static final int SHOOTER_LEFT_ID = 5;
   public static final int SHOOTER_RIGHT_ID = 4;
   public static final double SHOOTER_SPEED = -0.6;
-  public static final double SHOOTER_VELOCITY = -3000;
+  public static final double SHOOTER_VELOCITY = -3200; //-3000 is high shooter
   public static final double SHOOTER_RPM_TOLERANCE = 50;
-  public static final int SHOOTER_PULSE_COUNT = 20;
+  public static final int SHOOTER_PULSE_COUNT = 50;
 
   public static final double SHOOTER_P = 0.0001;
   public static final double SHOOTER_I = 0;
@@ -81,7 +81,7 @@ public final class Constants {
 
   public static final double CLIMBER_P_0 = 0.008;
   public static final double CLIMBER_I_0 = 0;
-  public static final double CLIMBER_D_0 = 0;
+  public static final double CLIMBER_D_0 = 0.5;
   public static final double CLIMBER_F_0 = 0;
   public static final int CLIMBER_SLOT_ID_0 = 0;
 
@@ -99,7 +99,7 @@ public final class Constants {
   public static final double CLIMBER_UP_ENCODER_RIGHT = 236000;
   public static final double CLIMBER_UP_ENCODER_LEFT = 229000;
 
-  public static final double ONEBALLAUTO_GOAL = -180;
+  public static final double ONEBALLAUTO_GOAL = -140;
   public static final double ONEBALLAUTO_SHOOTER_VELOCITY = -3000;
   // might need to add a driveStraightP vs turnAngleP
   // might also need leftPID vs rightPID bc of motor controllers

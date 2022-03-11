@@ -75,15 +75,18 @@ public class CargoManipulation extends CommandBase {
         intake.intakeTopMotor(Constants.INTAKE_SPEED * -1);
         intake.intakeBottomMotor(Constants.INTAKE_SPEED);
       } else {
+        System.out.println("setting speed to 0");
         intake.intakeTopMotor(0);
         intake.intakeBottomMotor(0);
       }
 
       if(pulseShooter > Constants.SHOOTER_PULSE_COUNT*2){
+        System.out.println("COUNTER ZERO");
         pulseShooter = 0;
       }
       
     }
+    System.out.println(pulseShooter);
   }
 
   // Called once the command ends or is interrupted.
