@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -31,6 +32,7 @@ import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.NavX;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.LinearServo;
+import frc.robot.subsystems.Camera;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -54,7 +56,7 @@ public class RobotContainer {
   private final Climber climber = new Climber();
   private final LinearServo servo = new LinearServo();
   private final Intake intake = new Intake();
-
+  private final Camera camera = new Camera();
   private final NavX navX = new NavX();
   // private final LinearServo2 servo2 = new LinearServo2(0);
 
