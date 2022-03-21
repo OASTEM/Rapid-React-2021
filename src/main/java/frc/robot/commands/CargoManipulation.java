@@ -4,16 +4,20 @@
 
 package frc.robot.commands;
 
+import com.revrobotics.SparkMaxRelativeEncoder;
+
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
+import pabeles.concurrency.ConcurrencyOps.Reset;
 
 public class CargoManipulation extends CommandBase {
   private final Intake intake; 
   private Shooter shooter;
   public boolean isIntaking;
-
+  private Timer timer;
 
   public CargoManipulation(Intake intake, Shooter shooter, boolean isIntaking) {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -33,6 +37,7 @@ public class CargoManipulation extends CommandBase {
       intake.intakeBottomMotor(Constants.INTAKE_BOTTOM_SPEED);
       intake.intakeOutsideMotor(Constants.INTAKE_OUTSIDE_SPEED);
       intake.intakeFrontMotor(Constants.INTAKE_FRONT_SPEED);
+      intake.intakeDownMotor(Constants.INTAKE_DOWN_SPEED);
     } else {
       shooter.setVelocity(Constants.SHOOTER_VELOCITY);
     }
