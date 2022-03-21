@@ -48,6 +48,7 @@ public class CargoManipulation extends CommandBase {
         timer.stop();
         timer.reset();
       }
+      
     } else {
       shooter.setVelocity(Constants.SHOOTER_VELOCITY);
     }
@@ -68,6 +69,19 @@ public class CargoManipulation extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    timer.reset();
+    timer.start();
+    if (timer.get() <= 2){
+      // Stop the down motor when the timer is greater than or equal to the amount of time it takes for the extendable intake to come down
+      intake.intakeDownMotor(-0.5);
+    }
+    else (timer.get() > 2){
+      intake.intakeDownMotor(0);
+      timer.stop();
+      timer.reset();
+    }
+    
+    
     intake.stop(); 
     shooter.stop();
   }
