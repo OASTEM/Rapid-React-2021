@@ -15,13 +15,15 @@ public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
   private CANSparkMax topMotor; 
   private CANSparkMax bottomMotor;
-  private CANSparkMax outsideMotor; 
+  private CANSparkMax outsideMotor;
+  private CANSparkMax frontMotor;
+
 
   public Intake() {
     topMotor = new CANSparkMax(Constants.INTAKE_TOP_SPARK, MotorType.kBrushless);
     bottomMotor = new CANSparkMax(Constants.INTAKE_BOTTOM_SPARK, MotorType.kBrushless);
     outsideMotor = new CANSparkMax(Constants.INTAKE_OUTSIDE_SPARK, MotorType.kBrushless);
-    
+    frontMotor = new CANSparkMax(Constants.INTAKE_FRONT_SPARK, MotorType.kBrushless);
   }
 
   public void intakeTopMotor(double speed){
@@ -33,6 +35,10 @@ public class Intake extends SubsystemBase {
   }
 
   public void intakeOutsideMotor(double speed){
+    outsideMotor.set(speed);
+  }
+
+  public void intakeFrontMotor(double speed){
     outsideMotor.set(speed);
   }
 

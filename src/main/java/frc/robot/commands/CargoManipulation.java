@@ -32,6 +32,7 @@ public class CargoManipulation extends CommandBase {
       intake.intakeTopMotor(Constants.INTAKE_TOP_SPEED);
       intake.intakeBottomMotor(Constants.INTAKE_BOTTOM_SPEED);
       intake.intakeOutsideMotor(Constants.INTAKE_OUTSIDE_SPEED);
+      intake.intakeFrontMotor(Constants.INTAKE_FRONT_SPEED);
     } else {
       shooter.setVelocity(Constants.SHOOTER_VELOCITY);
     }
