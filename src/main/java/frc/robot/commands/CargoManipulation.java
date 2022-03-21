@@ -32,13 +32,22 @@ public class CargoManipulation extends CommandBase {
   @Override
   
   public void initialize() {
-
+    
     if (isIntaking == true) {
+      timer.reset();
+      timer.start();
+      
       intake.intakeTopMotor(Constants.INTAKE_TOP_SPEED);
       intake.intakeBottomMotor(Constants.INTAKE_BOTTOM_SPEED);
       intake.intakeOutsideMotor(Constants.INTAKE_OUTSIDE_SPEED);
       intake.intakeFrontMotor(Constants.INTAKE_FRONT_SPEED);
       intake.intakeDownMotor(Constants.INTAKE_DOWN_SPEED);
+      if (timer.get() >= 2){
+        // Stop the down motor when the timer is greater than or equal to the amount of time it takes for the extendable intake to come down
+        intake.intakeDownMotor(0);
+        timer.stop();
+        timer.reset();
+      }
     } else {
       shooter.setVelocity(Constants.SHOOTER_VELOCITY);
     }

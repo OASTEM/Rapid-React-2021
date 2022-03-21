@@ -9,7 +9,7 @@ import frc.robot.Constants;
 import frc.robot.subsystems.Intake;
 
 public class IntakeCargo extends CommandBase {
-  /** Creates a new IntakeCargo. */
+  /** Creates a new IntakeCargo. */ 
   private final Intake intake; 
   public boolean isIntaking;
   public Timer timer;
