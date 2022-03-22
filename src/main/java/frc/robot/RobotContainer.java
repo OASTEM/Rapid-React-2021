@@ -47,7 +47,7 @@ public class RobotContainer {
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   private final LogitechGamingPad drivePad = new LogitechGamingPad(0);
-  // private final LogitechGamingPad opPad = new LogitechGamingPad(1);
+  private final LogitechGamingPad opPad = new LogitechGamingPad(1);
 
   private final DriveTrain driveTrain = new DriveTrain();
   private final Shooter shooter = new Shooter();
@@ -71,10 +71,10 @@ public class RobotContainer {
   // private final JoystickButton leftBumper = new JoystickButton(drivePad, 9);
   // private final JoystickButton rightBumper = new JoystickButton(drivePad, 10);
 
-  private final JoystickButton driveA = new JoystickButton(drivePad, 1);
-  private final JoystickButton driveB = new JoystickButton(drivePad, 2);
-  private final JoystickButton driveX = new JoystickButton(drivePad, 3);
-  private final JoystickButton driveY = new JoystickButton(drivePad, 4);
+  private final JoystickButton driveA = new JoystickButton(opPad, 1); 
+  private final JoystickButton driveB = new JoystickButton(drivePad, 2); 
+  private final JoystickButton driveX = new JoystickButton(opPad, 3); 
+  private final JoystickButton driveY = new JoystickButton(opPad, 4); 
   private final JoystickButton leftBumper = new JoystickButton(drivePad, 5);
   private final JoystickButton rightBumper = new JoystickButton(drivePad, 6);
   private final JoystickButton driveBackButton = new JoystickButton(drivePad, 7);
