@@ -5,30 +5,23 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.simulation.PS4ControllerSim;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.CargoManipulation;
 import frc.robot.commands.ChangeDriveMode;
+import frc.robot.commands.ChangeRegularMode;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.IntakeCargo;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Intake;
-import frc.robot.commands.Shoot;
-import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PS4Controller;
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.simulation.PS4ControllerSim;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -85,14 +78,15 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     // buttonX.whenPressed(new IntakeCargo(intake, false));
-    rightBumper.whileHeld(new CargoManipulation(intake, shooter, true));
-    leftBumper.whileHeld(new CargoManipulation(intake, shooter, false));
+    // rightBumper.whileHeld(new CargoManipulation(intake, shooter, true));
+    // leftBumper.whileHeld(new CargoManipulation(intake, shooter, false));
 
     // buttonY.whileHeld(new ClimbUp(climber));
     // buttonA.whileHeld(new ClimbDown(climber));
 
     // buttonA.whenPressed(new ArcadeDrive(driveTrain, drivePad));
-    buttonB.whenPressed(new ChangeDriveMode(driveTrain));
+    leftBumper.whenPressed(new ChangeDriveMode(driveTrain));
+    rightBumper.whenPressed(new ChangeRegularMode(driveTrain));
   }
 
   /**

@@ -37,10 +37,10 @@ public class DriveTrain extends SubsystemBase {
 
     backL.follow(frontL);
     backR.follow(frontR);
-    frontL.setInverted(true);
-    backL.setInverted(true);
-    frontR.setInverted(false);
-    backR.setInverted(false);
+    frontL.setInverted(false);
+    backL.setInverted(false);
+    frontR.setInverted(true);
+    backR.setInverted(true);
 
     frontL.configPeakOutputForward(1);
     frontL.configPeakOutputReverse(-1);
