@@ -68,7 +68,7 @@ public class RobotContainer {
    */
   public RobotContainer() {
     // Configure the button bindings
-
+    driveTrain.setDefaultCommand(new TankDrive(driveTrain, drivePad));
     configureButtonBindings();
     
     chooser = new SendableChooser<String>();
