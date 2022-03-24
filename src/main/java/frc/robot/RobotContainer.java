@@ -49,7 +49,7 @@ public class RobotContainer {
 
   // private final Intake intake = new Intake();
   // private final JoystickButton buttonX = new JoystickButton(drivePad, 3);
-  //private final JoystickButton rightBumper = new JoystickButton(drivePad, 10);
+  // private final JoystickButton rightBumper = new JoystickButton(drivePad, 10);
   // private final JoystickButton startButton = new JoystickButton(drivePad, 8);
   // private final JoystickButton buttonY = new JoystickButton(drivePad, 4);
   // private final JoystickButton buttonA = new JoystickButton(drivePad, 1);
@@ -59,7 +59,7 @@ public class RobotContainer {
   private final JoystickButton rightBumper = new JoystickButton(drivePad, 6);
   private final String ArcadeDrive = "ArcadeDrive";
   private final String TankDrive = "TankDrive";
-    public SendableChooser<String> chooser;
+  public SendableChooser<String> chooser;
 
   // private final JoystickButton buttonB = new JoystickButton(drivePad, 2);
 
@@ -70,11 +70,14 @@ public class RobotContainer {
     // Configure the button bindings
     driveTrain.setDefaultCommand(new TankDrive(driveTrain, drivePad));
     configureButtonBindings();
-    
+
     chooser = new SendableChooser<String>();
-    SmartDashboard.putData("DriveModeChooser", chooser);
     chooser.setDefaultOption("TankDrive", TankDrive);
     chooser.addOption("ArcadeDrive", ArcadeDrive);
+    SmartDashboard.putData("DriveModeChooser", chooser);
+    
+  }
+  public void setChooserMode(){
     if(chooser.getSelected().equals(ArcadeDrive)) {
       driveTrain.setDefaultCommand(new ArcadeDrive(driveTrain, drivePad));
     } 
@@ -111,7 +114,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand; //in inches
-    //return new TurnToAngle(driveTrain, navX, 90);
+    return m_autoCommand; // in inches
+    // return new TurnToAngle(driveTrain, navX, 90);
   }
 }
