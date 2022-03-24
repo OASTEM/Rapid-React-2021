@@ -77,7 +77,8 @@ public class RobotContainer {
     chooser.addOption("ArcadeDrive", ArcadeDrive);
     if(chooser.getSelected().equals(ArcadeDrive)) {
       driveTrain.setDefaultCommand(new ArcadeDrive(driveTrain, drivePad));
-    } if(chooser.getSelected().equals(TankDrive)) {
+    } 
+    else if(chooser.getSelected().equals(TankDrive)) {
       driveTrain.setDefaultCommand(new TankDrive(driveTrain, drivePad));
     }
   }
