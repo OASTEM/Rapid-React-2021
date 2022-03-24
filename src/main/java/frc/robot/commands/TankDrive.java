@@ -4,12 +4,22 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
+import frc.robot.LogitechGamingPad;
+import frc.robot.subsystems.DriveTrain;
 
 public class TankDrive extends CommandBase {
-  /** Creates a new TankDrive. */
-  public TankDrive() {
+  /** Creates a new ArcadeDrive. */
+  DriveTrain driveTrain;
+  LogitechGamingPad drivePad; 
+
+  public TankDrive(DriveTrain driveTrain, LogitechGamingPad drivePad) {
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(driveTrain);
+    this.driveTrain = driveTrain; 
+    this.drivePad = drivePad; 
   }
 
   // Called when the command is initially scheduled.
@@ -18,11 +28,26 @@ public class TankDrive extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    if(driveTrain.getSlowMode()){
+      driveTrain.tankDrive((drivePad.getRightAnalogYAxis() * Constants.SLOW_MODE), (drivePad.getLeftAnalogYAxis() * Constants.SLOW_MODE));
+      SmartDashboard.putBoolean("Slow Mode: ", true);
+    } 
+
+    if(driveTrain.getSlowMode() == false){
+      driveTrain.tankDrive((drivePad.getRightAnalogYAxis()), (drivePad.getLeftAnalogYAxis()));
+      SmartDashboard.putBoolean("Slow Mode: ", false);
+    }
+    
+    // driveTrain.arcadeDrive((drivePad.getRightAnalogXAxis()*Constants.REGULAR_MODE),
+    //  (drivePad.getLeftAnalogYAxis()*Constants.REGULAR_MODE));
+  }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    driveTrain.stop();
+  }
 
   // Returns true when the command should end.
   @Override
