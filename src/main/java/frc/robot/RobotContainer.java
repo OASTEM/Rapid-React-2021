@@ -75,12 +75,10 @@ public class RobotContainer {
     SmartDashboard.putData("DriveModeChooser", chooser);
     chooser.setDefaultOption("TankDrive", TankDrive);
     chooser.addOption("ArcadeDrive", ArcadeDrive);
-    if(chooser.getSelected().equals(TankDrive)) {
+    if(chooser.getSelected().equals(ArcadeDrive)) {
       driveTrain.setDefaultCommand(new ArcadeDrive(driveTrain, drivePad));
-      configureButtonBindings();
-    } else if(chooser.getSelected().equals(ArcadeDrive)) {
+    } if(chooser.getSelected().equals(TankDrive)) {
       driveTrain.setDefaultCommand(new TankDrive(driveTrain, drivePad));
-      configureButtonBindings();
     }
   }
 
