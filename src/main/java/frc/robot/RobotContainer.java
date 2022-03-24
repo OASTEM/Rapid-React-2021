@@ -57,8 +57,9 @@ public class RobotContainer {
   private final JoystickButton buttonB = new JoystickButton(drivePad, 2);
   private final JoystickButton leftBumper = new JoystickButton(drivePad, 5);
   private final JoystickButton rightBumper = new JoystickButton(drivePad, 6);
-
-  public SendableChooser<String> chooser;
+  private final String ArcadeDrive = "ArcadeDrive";
+  private final String TankDrive = "TankDrive";
+    public SendableChooser<String> chooser;
 
   // private final JoystickButton buttonB = new JoystickButton(drivePad, 2);
 
