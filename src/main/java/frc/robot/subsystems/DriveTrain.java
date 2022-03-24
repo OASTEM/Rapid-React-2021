@@ -56,6 +56,7 @@ public class DriveTrain extends SubsystemBase {
     frontR.configMotionAcceleration(Constants.ACCELERATION, 0);
 
     //resetEncoders();
+    
   }
 
   public void arcadeDrive(double x, double y) {
