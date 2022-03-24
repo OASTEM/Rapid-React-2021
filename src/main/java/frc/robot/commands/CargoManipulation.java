@@ -75,7 +75,7 @@ public class CargoManipulation extends CommandBase {
       // Stop the down motor when the timer is greater than or equal to the amount of time it takes for the extendable intake to come down
       intake.intakeDownMotor(-0.5);
     }
-    else (timer.get() > 2){
+    if (timer.get() > 2){
       intake.intakeDownMotor(0);
       timer.stop();
       timer.reset();
