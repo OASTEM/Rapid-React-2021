@@ -35,6 +35,7 @@ public class DriveTrain extends SubsystemBase {
     frontR.setInverted(true);
     backR.setInverted(true);
 
+    /*
     frontL.configClosedloopRamp(Constants.CLOSED_LOOP_RAMP);
     frontR.configClosedloopRamp(Constants.CLOSED_LOOP_RAMP);
     backL.configClosedloopRamp(Constants.CLOSED_LOOP_RAMP);
@@ -44,7 +45,8 @@ public class DriveTrain extends SubsystemBase {
     frontR.configOpenloopRamp(Constants.OPEN_LOOP_RAMP);
     backL.configOpenloopRamp(Constants.OPEN_LOOP_RAMP);
     backR.configOpenloopRamp(Constants.OPEN_LOOP_RAMP);
-    
+    */
+
     frontL.configPeakOutputForward(1);
     frontL.configPeakOutputReverse(-1);
     frontR.configPeakOutputForward(1);
@@ -87,7 +89,7 @@ public class DriveTrain extends SubsystemBase {
   public double getRightEncoderCount() {
     return frontR.getSensorCollection().getIntegratedSensorPosition();
   }
-
+/*
   public double getNativeUnitsFromInches(double inches) {
     return inches * Constants.MOTOR_TO_WHEEL_REVOLUTION / (Math.PI * Constants.DRIVE_WHEEL_DIAMETER_INCHES)
         * Constants.SENSOR_UNITS_PER_ROTATION;
@@ -97,7 +99,7 @@ public class DriveTrain extends SubsystemBase {
     return native_units / Constants.MOTOR_TO_WHEEL_REVOLUTION * (Math.PI * Constants.DRIVE_WHEEL_DIAMETER_INCHES)
         / Constants.SENSOR_UNITS_PER_ROTATION;
   }
-
+*/
   public void resetEncoders() {
     frontL.getSensorCollection().setIntegratedSensorPosition(0, 0);
     frontR.getSensorCollection().setIntegratedSensorPosition(0, 0);
@@ -108,10 +110,12 @@ public class DriveTrain extends SubsystemBase {
     System.out.println("Right: " + getRightEncoderCount());
   }
 
+  /*
   public void printInches() {
     System.out.println("Left Inches: " + getInchesFromNativeUnits(getLeftEncoderCount()));
     System.out.println("Right Inches: " + getInchesFromNativeUnits(getRightEncoderCount()));
   }
+*/
 
   @Override
   public void periodic() {
