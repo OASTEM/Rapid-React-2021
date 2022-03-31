@@ -54,7 +54,7 @@ public class SortColor extends CommandBase {
   public boolean isFinished() {
     return false;
   }
-
+//
   // public Command chooseBlueRedCommand() {
   //   // An ExampleCommand will run in autonomous
   //   if(chooser.getSelected().equals(red)) {
