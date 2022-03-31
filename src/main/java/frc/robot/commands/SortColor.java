@@ -55,16 +55,16 @@ public class SortColor extends CommandBase {
     return false;
   }
 
-  public Command chooseBlueRedCommand() {
-    // An ExampleCommand will run in autonomous
-    if(chooser.getSelected().equals(red)) {
-      return red;
-    }
-    else if(chooser.getSelected().equals(blue)) {
-      return blue;
-    }
-    else {
-      return new DriveDistance(-10, "B", 0);
-    }
-  }
+  // public Command chooseBlueRedCommand() {
+  //   // An ExampleCommand will run in autonomous
+  //   if(chooser.getSelected().equals(red)) {
+  //     return red;
+  //   }
+  //   else if(chooser.getSelected().equals(blue)) {
+  //     return blue;
+  //   }
+  //   else {
+  //     return new DriveDistance(-10, "B", 0);
+  //   }
+  // }
 }
