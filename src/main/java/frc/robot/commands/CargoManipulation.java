@@ -65,6 +65,8 @@ public class CargoManipulation extends CommandBase {
   @Override
   public void execute() {
     error = Math.abs(shooterVelocity - shooter.getLeftVelocity());
+    System.out.println("error: " + shooter.getLeftVelocity());
+
     if (isIntaking == false && error <= Constants.SHOOTER_RPM_TOLERANCE) {
       intake.intakeTopMotor(Constants.INTAKE_SPEED * -1);
       intake.intakeBottomMotor(Constants.INTAKE_SPEED);

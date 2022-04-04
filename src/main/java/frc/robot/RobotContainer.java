@@ -20,6 +20,7 @@ import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DriveStraight;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.PistonMove;
+import frc.robot.subsystems.Camera;
 //import frc.robot.commands.IntakeCargo;
 import frc.robot.commands.OneBallAuto;
 import frc.robot.commands.TwoBallAuto;
@@ -54,6 +55,7 @@ public class RobotContainer {
   private final Climber climber = new Climber();
   private final LinearServo servo = new LinearServo();
   private final Intake intake = new Intake();
+  // private final Camera camera = new Camera();
 
   private final NavX navX = new NavX();
   // private final LinearServo2 servo2 = new LinearServo2(0);
