@@ -29,7 +29,7 @@ public class ColorSorter extends SubsystemBase {
   private final Color redBall = new Color(0.561, 0.232, 0.114);
   private final String[] colorList = { "Blue", "Red"};
   public String colorString;
-
+  
   /** Creates a new ColorSorter. */
   public ColorSorter() {
     m_colorMatcher.addColorMatch(blueBall);
@@ -43,21 +43,28 @@ public class ColorSorter extends SubsystemBase {
     // System.out.println(getBallColor());
     Color detectedColor = m_colorSensor.getColor();
     // m_colorMatcher.setConfidenceThreshold(0.95);
+
     ColorMatchResult result = m_colorMatcher.matchClosestColor(detectedColor);
     // System.out.println("Result " + result.color);
     // System.out.println("Detected Color" + detectedColor);
-    if (result.color == blueBall){
-      colorString = "Blue";
-    }
-    else if (result.color == redBall) {
-      colorString = "Red";
-    }
-    else {
-      colorString = "Unknown";
-    // This method will be called once per scheduler run
-  }
-  System.out.println(colorString);
+  //   if (result.color == blueBall){
+  //     colorString = "Blue";
+  //   }
+  //   else if (result.color == redBall) {
+  //     colorString = "Red";
+  //   }
+  //   else {
+  //     colorString = "Unknown";
+  //   // This method will be called once per scheduler run
+  // }
+  // System.out.println(colorString);
 }
+
+public void testColor(){
+  Color detectedColor = m_colorSensor.getColor();
+  System.out.println(detectedColor);
+ }
+
 public void getBallColor() {
    Color detectedColor = m_colorSensor.getColor();
    // m_colorMatcher.setConfidenceThreshold(0.95);
@@ -77,7 +84,6 @@ public void getBallColor() {
       }
 }
 }
-
 
 
 
